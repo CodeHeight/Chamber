@@ -12,4 +12,6 @@ Chamber of commerce application
  - Business Fees
  - Administration Panel
 
+[Chamber Demo Site](http://chamber.azurewebsites.net/)
+
 This project was originally used for local chamber sites and a lot of commerical names, images, etc. was stripped out.  Chamber was developed by [CodeHeight Solutions](http://www.codeheight.com)
