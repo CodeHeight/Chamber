@@ -15,3 +15,5 @@ Chamber of commerce application
 [Chamber Demo Site](http://chamber.azurewebsites.net/)
 
 This project was originally used for local chamber sites and a lot of commerical names, images, etc. was stripped out.  Chamber was developed by [CodeHeight Solutions](http://www.codeheight.com)
+
+.... The code will be pushed within a few days.  I'm cleaning up the code for open source.
