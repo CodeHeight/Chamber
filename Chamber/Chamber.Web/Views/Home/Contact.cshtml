@@ -1,0 +1,106 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="pageTitle">Contact Chamber of Commerce</h2>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <br>
+                <div class="alert alert-success hidden" id="contactSuccess">
+                    <strong>Success!</strong> Your message has been sent to us.
+                </div>
+                <div class="alert alert-error hidden" id="contactError">
+                    <strong>Error!</strong> There was an error sending your message.
+                </div>
+                <div class="contact-form">
+                    <!-- Form itself -->
+                    <form name="sentMessage" id="contactForm" novalidate>
+                        <h3>Contact us below:</h3>
+                        <div class="control-group">
+                            <div class="controls">
+                                <input type="text" class="form-control"
+                                       placeholder="Full Name" id="RecipientName" required name="RecipientName"
+                                       data-validation-required-message="Please enter your name" />
+                                <p class="help-block"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="controls">
+                                <input type="email" class="form-control" placeholder="Email"
+                                       id="RecipientEmail" name="RecipientEmail" required
+                                       data-validation-required-message="Please enter your email" />
+                            </div>
+                        </div>
+                        <br />
+                        <div class="control-group">
+                            <div class="controls">
+                                <textarea rows="10" cols="100" class="form-control"
+                                          placeholder="Please enter your message" id="RecipientMessage" name="RecipientMessage" required
+                                          data-validation-required-message="Please enter your message" minlength="5"
+                                          data-validation-minlength-message="Min 5 characters"
+                                          maxlength="999" style="resize:none"></textarea>
+                            </div>
+                        </div>
+                        <br />
+                        <input class="btn btn-primary pull-right" type="submit" id="EmailSendButton" name="EmailSendButton" value="send message" onclick="EmailData()">
+                        <br /><br /><br />
+                        <div id="EmailConfirmation"></div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+
+                <div class="span4">
+                    <br />
+                    <div class="title-box clearfix "><h3 class="title-box_primary">Contact info</h3></div>
+                    <h5>Feel free to contact us through the web app or by the contact information listed below.</h5>
+                    <p>
+                        One of our panel members will get in touch with you as soon as possible.<br>
+                    </p><address>
+                        <strong>
+                            Chamber of Commerce<br>
+                            P.O. Box <br>
+                            Montgomery, AL 36106
+                        </strong><br>
+                        Telephone: (256) 537-0000<br>
+                        E-mail: chamber@gmail.com<br>
+                    </address>
+                </div>
+                <br />
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d939.0054907237769!2d-86.21986317077119!3d32.889724124957496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDUzJzIzLjAiTiA4NsKwMTMnMDkuNSJX!5e1!3m2!1sen!2sus!4v1458356078140" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                <br /><br />
+            </div>
+        </div>
+    </div>
+
+</section>
+<script>
+        function EmailData() {
+            $("#EmailSendButton").attr("disabled", "true");
+
+            var url = "/Home/EmailData";
+            var recipientName = $("#RecipientName").val();
+            var recipientEmail = $("#RecipientEmail").val();
+            var recipientMessage = $("#RecipientMessage").val();
+            var postData = { 'Name': recipientName, 'Email': recipientEmail, 'Message': recipientMessage }
+            $.post(url, postData, function (result) {
+                $("#EmailConfirmation").css({ 'display': 'block' });
+                $("#EmailConfirmation").text(result);
+                $("#EmailConfirmation").attr({ class: 'alert alert-success' })
+                $("#RecipientName").val('Your Name *');
+                $("#RecipientEmail").val('Your E-mail *');
+                $("#RecipientMessage").val('Your Message *');
+            })
+        }
+</script>

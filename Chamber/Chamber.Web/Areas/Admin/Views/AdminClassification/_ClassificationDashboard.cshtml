@@ -1,0 +1,40 @@
+﻿@model Chamber.Web.Areas.Admin.ViewModels.ClassificationViewModel
+
+<div class="col-md-12">
+    <p><i class="fa fa-dashboard"></i> <span style="font-weight: 800;">Classification Dashboard</span></p>
+    <div style="border:1px solid #3b5998"></div>
+</div>
+<div class="col-md-12">
+    <br />
+    <table class="table table-bordered table-striped">
+        <tbody>
+            <tr>
+                <td>
+                    <strong>Total Count</strong>
+                </td>
+                <td>
+                    @if (Model._listViewModel.NonPagedClassifications != null)
+                    {
+                        <strong>@Model._listViewModel.NonPagedClassifications.Count()</strong>
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Most Popular</strong>
+                </td>
+                <td>
+                    <strong></strong>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Least Popular</strong>
+                </td>
+                <td>
+                    <strong></strong>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,104 @@
+﻿@using Chamber.Domain.Constants
+@using Chamber.Web.Application
+@model Chamber.Web.Areas.Admin.ViewModels.BusinessContactViewModel
+
+@{
+    ViewBag.Title = "POC";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="pageTitle"><span style="font-weight: 800">Administration:</span> Business</h2>
+            </div>
+        </div>
+    </div>
+</section>
+<br />
+<section id="content">
+    <div class="container">
+        <div class="about">
+            <img class="img-business" src="@AppHelpers.BusinessImage(Model.business.Avatar, Model.business.Id, SiteConstants.Instance.GravatarProfileSize)" alt="@Model.business.Name"><br />
+            <h3>@Model.business.Name</h3>
+            <div id="about" class="panel-default">
+                <div class="row">
+                    @using (Html.BeginForm("AddPOC", "AdminBusiness", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(x => x.Id)
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="FirstName">First Name</label>
+                                @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control", maxlength = 50 })
+                            </div>
+                            <div class="form-group">
+                                <label for="LastName">Last Name</label>
+                                @Html.TextBoxFor(x => x.LastName, new { @class = "form-control", maxlength = 50 })
+                            </div>
+                            <div class="form-group">
+                                <label for="PhoneNumber">Phone Number</label>
+                                @Html.TextBoxFor(x => x.PrimaryPhoneNumber, new { @class = "form-control", maxlength = 12 })
+                            </div>
+                            <div class="form-group">
+                                <label for="Email">Email</label>
+                                @Html.TextBoxFor(x => x.Email, new { @class = "form-control", maxlength = 100 })
+                            </div>
+                            <div class="submit-holder">
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-success">Save Contact</button>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="@Url.Action("Business", "AdminBusiness")" class="btn btn-danger">Nevermind</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    <div class="col-md-8">
+                        @if (Model.businessContacts.Count != 0)
+                        {
+                            <br />
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Phone</th>
+                                        <th>Email</th>
+                                        <th><span style="font-size:smaller">Edit</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.businessContacts)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <strong>@item.FirstName @item.LastName</strong>
+                                            </td>
+                                            <td>
+                                                <strong>@item.PrimaryPhone</strong>
+                                            </td>
+                                            <td>
+                                                <strong>@item.Email</strong>
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("UpdatePOC", "AdminBusiness", new { id = item.Id })" class="btn-sm">
+                                                    <span class="fa fa-edit" aria-hidden="true"></span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        }
+                        else
+                        {
+                            <h3>There are no contacts for this business.<br /><br />Add someone using the form on the (your) left.</h3>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

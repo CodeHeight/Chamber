@@ -18,3 +18,10 @@ C:\Github\Chamber\Chamber\Chamber.Domain\bin\Debug\System.Web.WebPages.Razor.xml
 C:\Github\Chamber\Chamber\Chamber.Domain\obj\Debug\Chamber.Domain.csprojResolveAssemblyReference.cache
 C:\Github\Chamber\Chamber\Chamber.Domain\obj\Debug\Chamber.Domain.dll
 C:\Github\Chamber\Chamber\Chamber.Domain\obj\Debug\Chamber.Domain.pdb
+C:\Github\Chamber\Chamber\Chamber.Domain\bin\Debug\HtmlAgilityPack.dll
+C:\Github\Chamber\Chamber\Chamber.Domain\bin\Debug\HtmlSanitizationLibrary.dll
+C:\Github\Chamber\Chamber\Chamber.Domain\bin\Debug\AntiXssLibrary.dll
+C:\Github\Chamber\Chamber\Chamber.Domain\bin\Debug\HtmlAgilityPack.pdb
+C:\Github\Chamber\Chamber\Chamber.Domain\bin\Debug\HtmlAgilityPack.xml
+C:\Github\Chamber\Chamber\Chamber.Domain\bin\Debug\HtmlSanitizationLibrary.xml
+C:\Github\Chamber\Chamber\Chamber.Domain\bin\Debug\AntiXssLibrary.xml

@@ -1,0 +1,193 @@
+﻿
+@{
+    ViewBag.Title = "Online Membership Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="pageTitle">Chamber Membership Form</h2>
+            </div>
+        </div>
+    </div>
+</section>
+<br />
+<div class="row">
+    <div class="col-md-3 col-sm-3">
+        <div class="col-md-12">
+            <p><i class="fa fa-sitemap"></i> <span style="font-weight: 800;">Registration Step 1 of 4</span> </p>
+            <div style="border:1px solid #3b5998"></div>
+        </div>
+        <div class="col-md-12">
+            <div class="panel-group">
+                <div class="panel">
+                    <div class="panel-body">
+                        Enter your organization/business name and mailing address.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-5 col-sm-5">
+        <div class="row">
+            <div class="col-md-12">
+                <p><i class="fa fa-building-o"></i> <span style="font-weight: 800;">Organization Information</span> </p>
+                <div style="border:1px solid #3b5998"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="FirstName">Name</label>
+                            <input type="text" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="FirstName">Employees</label>
+                            <input type="text" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="FirstName">Mailing Address</label>
+                            <input type="text" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            &nbsp;
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="FirstName">City</label>
+                            <input type="text" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="FirstName">State</label>
+                            <input type="text" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="FirstName">Zipcode</label>
+                            <input type="text" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <p> &nbsp;</p>
+                    <div style="border:1px solid #808080"></div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-6">
+                        <br />
+                        <div class="form-group">
+                            <label for="FirstName">Phyiscal Address</label>
+                            <input type="text" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            &nbsp;
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="FirstName">City</label>
+                            <input type="text" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="FirstName">State</label>
+                            <input type="text" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="FirstName">Zipcode</label>
+                            <input type="text" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="submit-holder" style="text-align: center;">
+
+                <div class="col-md-6">
+                    <button type="submit" class="btn btn-default btn-group-lg">Save and Proceed to step 2</button>
+                </div>
+                <div class="col-md-6">
+                    <a href="#" class="btn btn-default btn-group-lg">Save and finish later</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="col-md-3 col-sm-3">
+        <div class="row">
+            <div class="col-md-12">
+                <p><i class="fa fa-volume-up"></i> Advertisements</p>
+                <div style="border:1px solid #3b5998"></div>
+            </div>
+            @*<div class="col-md-12 sponsor-list">
+                    <img src="~/Content/img/ad/OfficialLogo.png" class="img-responsive  img-rounded show-in-modal">
+                    @*<p class="sponsor-name">Southern Star Technology</p>
+                    <p class="sponsor-url"><a href="http://www.southernstartech.us" target="_blank">Southern Star Technology</a></p>
+                    <p class="sponsor-description">We build apps for all your business needs.</p>
+                </div>*@
+            <div class="col-md-12 sponsor-list">
+                <img src="~/Content/img/ad/logo_farm.png" class="img-responsive  img-rounded show-in-modal">
+                @*<p class="sponsor-name">Southern Star Farm</p>*@
+                <p class="sponsor-url"><a href="http://www.southernstarfarm.us" target="_blank">Southern Star Farm</a></p>
+                <p class="sponsor-description">Alpaca fashions made with real alpaca fiber.</p>
+            </div>
+            <div class="col-md-12 sponsor-list">
+                <img src="~/Content/img/ad/SouthernStarPetLogo.jpg" class="img-responsive  img-rounded show-in-modal">
+                @*<p class="sponsor-name">Southern Star Farm</p>*@
+                <p class="sponsor-url"><a href="http://www.southernstarpet.com" target="_blank">Southern Star Pet</a></p>
+                <p class="sponsor-description">Board your pets with the best in Lake Martin area.</p>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+@*<section id="content">
+        <div class="container content">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="FirstName">Organization Name</label>
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="FirstName">Organization Name</label>
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>*@

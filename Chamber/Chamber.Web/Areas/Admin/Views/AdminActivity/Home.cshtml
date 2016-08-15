@@ -1,0 +1,85 @@
+﻿@using Chamber.Domain.DomainModel.Activity
+@using Chamber.Domain.Constants
+@using Chamber.Web.Application
+@model Chamber.Web.Areas.Admin.ViewModels.AllRecentActivitiesViewModel
+
+
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    var totalCount = Convert.ToInt32(Model.TotalCount);
+}
+
+
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="pageTitle"><span style="font-weight: 800">Administration:</span> Activity Log</h2>
+            </div>
+        </div>
+    </div>
+</section>
+<br />
+
+<div class="row">
+    <div class="col-md-5 col-xs-push-3">
+        @foreach (var activity in Model.Activities)
+        {
+            <div>
+                @if (activity is MemberJoinedActivity)
+                {
+                    var memberJoinedActivity = activity as MemberJoinedActivity;
+                    <div class="row memberjoinedactivity">
+                        <div class="activitybadge col-md-1">
+                            <img class="activityImage" src="@memberJoinedActivity.User.MemberImage(SiteConstants.Instance.GravatarPostSize)" alt="@memberJoinedActivity.User.Email" />
+                        </div>
+
+                        <div class="activityinfo col-md-11">
+                            <p class="activityinfotext">@Html.Raw(memberJoinedActivity.User.Email) has registered.</p>
+                            <p class="activitysubdate">
+                                @DatesUI.GetPrettyDate(memberJoinedActivity.ActivityMapped.Timestamp.ToString())
+                            </p>
+                        </div>
+                    </div>
+                }
+                else if (activity is ProfileUpdatedActivity)
+                {
+                    var profileUpdatedActivity = activity as ProfileUpdatedActivity;
+                    <div class="row profileupdatedactivity">
+                        <div class="activitybadge col-md-1">
+                            <img class="activityImage" src="@profileUpdatedActivity.User.MemberImage(SiteConstants.Instance.GravatarPostSize)" alt="@profileUpdatedActivity.User.Email" />
+                        </div>
+
+                        <div class="activityinfo col-md-11">
+                            <p class="activityinfotext">@Html.Raw(profileUpdatedActivity.User.Email) updated their profile.</p>
+                            <p class="activitysubdate">
+                                @DatesUI.GetPrettyDate(profileUpdatedActivity.ActivityMapped.Timestamp.ToString())
+                            </p>
+                        </div>
+                    </div>
+                }
+                else if (activity is AdminProfileUpdatedActivity)
+                {
+                    var profileUpdatedActivity = activity as AdminProfileUpdatedActivity;
+                    <div class="row">
+                        <div class="col-md-1">
+                            <img class="activityImage" src="@profileUpdatedActivity.User.MemberImage(SiteConstants.Instance.GravatarPostSize)" alt="@profileUpdatedActivity.User.Email" />
+                        </div>
+
+                        <div class="activityinfo col-md-11">
+                            <p class="activityinfotext">@Html.Raw(profileUpdatedActivity.User.Email) updated their profile in Admin portal</p>
+                            <p class="activitysubdate">
+                                @DatesUI.GetPrettyDate(profileUpdatedActivity.ActivityMapped.Timestamp.ToString())
+                            </p>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+    @if (Model.Activities.TotalPages > 1)
+    {
+        @Html.Pager(Convert.ToInt32(Model.PageIndex), 5, totalCount, null)
+    }
+</div>

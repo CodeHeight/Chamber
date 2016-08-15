@@ -69,7 +69,84 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\AppConstants.cs" />
+    <Compile Include="Constants\SiteConstants.cs" />
+    <Compile Include="DomainModel\Activity\ActivityBase.cs" />
+    <Compile Include="DomainModel\Activity\ActivityType.cs" />
+    <Compile Include="DomainModel\Activity\AdminBusinessAddedActivity.cs" />
+    <Compile Include="DomainModel\Activity\AdminBusinessBalanceAddedActivity.cs" />
+    <Compile Include="DomainModel\Activity\AdminBusinessContactAddedActivity.cs" />
+    <Compile Include="DomainModel\Activity\AdminBusinessUpdatedActivity.cs" />
+    <Compile Include="DomainModel\Activity\AdminProfileUpdatedActivity.cs" />
+    <Compile Include="DomainModel\Activity\AdminRegisterUserAddedActivity.cs" />
+    <Compile Include="DomainModel\Activity\ClassificationAddedActivity.cs" />
+    <Compile Include="DomainModel\Activity\ClassificationRemovedActivity.cs" />
+    <Compile Include="DomainModel\Activity\ClassificationUpdatedActivity.cs" />
+    <Compile Include="DomainModel\Activity\MemberJoinedActivity.cs" />
+    <Compile Include="DomainModel\Activity\MembershipLevelAddedActivity.cs" />
+    <Compile Include="DomainModel\Activity\MembershipLevelUpdatedActivity.cs" />
+    <Compile Include="DomainModel\Activity\ProfileUpdatedActivity.cs" />
+    <Compile Include="DomainModel\Entities\Business.cs" />
+    <Compile Include="DomainModel\Entities\BusinessBalance.cs" />
+    <Compile Include="DomainModel\Entities\BusinessContact.cs" />
+    <Compile Include="DomainModel\Entities\Classification.cs" />
+    <Compile Include="DomainModel\Entities\Email.cs" />
+    <Compile Include="DomainModel\Entities\Entity.cs" />
+    <Compile Include="DomainModel\Entities\MembershipLevel.cs" />
+    <Compile Include="DomainModel\Entities\MembershipRole.cs" />
+    <Compile Include="DomainModel\Entities\MembershipUser.cs" />
+    <Compile Include="DomainModel\Entities\Settings.cs" />
+    <Compile Include="DomainModel\Entities\Static\Bit.cs" />
+    <Compile Include="DomainModel\Entities\Static\State.cs" />
+    <Compile Include="DomainModel\Enums\CacheTimes.cs" />
+    <Compile Include="DomainModel\Exceptions\InUseUnableToDeleteException.cs" />
+    <Compile Include="DomainModel\General\BusinessWithBusinessContacts.cs" />
+    <Compile Include="DomainModel\General\PagedList.cs" />
+    <Compile Include="DomainModel\General\UploadFileResult.cs" />
+    <Compile Include="DomainModel\LinqKit\ExpandableQuery.cs" />
+    <Compile Include="DomainModel\LinqKit\ExpressionExpander.cs" />
+    <Compile Include="DomainModel\LinqKit\ExpressionVisitor.cs" />
+    <Compile Include="DomainModel\LinqKit\Extensions.cs" />
+    <Compile Include="DomainModel\LinqKit\Linq.cs" />
+    <Compile Include="DomainModel\LinqKit\PredicateBuilder.cs" />
+    <Compile Include="Events\AdminAddBusinessBalanceEventArgs.cs" />
+    <Compile Include="Events\AdminAddBusinessContactEventArgs.cs" />
+    <Compile Include="Events\AdminAddBusinessEventArgs.cs" />
+    <Compile Include="Events\AdminRegisterUserEventArgs.cs" />
+    <Compile Include="Events\AdminUpdateBusinessEventArgs.cs" />
+    <Compile Include="Events\AdminUpdateProfileEventArgs.cs" />
+    <Compile Include="Events\ChamberEventArgs.cs" />
+    <Compile Include="Events\EventManager.cs" />
+    <Compile Include="Events\LoginEventArgs.cs" />
+    <Compile Include="Events\NewClassificationEventArgs.cs" />
+    <Compile Include="Events\NewMembershipLevelEventArgs.cs" />
+    <Compile Include="Events\RegisterUserEventArgs.cs" />
+    <Compile Include="Events\UpdateClassificationEventArgs.cs" />
+    <Compile Include="Events\UpdateMembershipLevelEventArgs.cs" />
+    <Compile Include="Events\UpdateProfileEventArgs.cs" />
+    <Compile Include="Interfaces\Events\IEventHandler.cs" />
+    <Compile Include="Interfaces\Events\IEventManager.cs" />
+    <Compile Include="Interfaces\IChamberContext.cs" />
+    <Compile Include="Interfaces\IModelAttribute.cs" />
+    <Compile Include="Interfaces\IPagedList.cs" />
+    <Compile Include="Interfaces\Providers\IStorageProvider.cs" />
+    <Compile Include="Interfaces\Services\IActivityService.cs" />
+    <Compile Include="Interfaces\Services\IBusinessService.cs" />
+    <Compile Include="Interfaces\Services\ICacheService.cs" />
+    <Compile Include="Interfaces\Services\IClassificationService.cs" />
+    <Compile Include="Interfaces\Services\IConfigService.cs" />
+    <Compile Include="Interfaces\Services\IEmailService.cs" />
+    <Compile Include="Interfaces\Services\ILoggingService.cs" />
+    <Compile Include="Interfaces\Services\IMembershipLevelService.cs" />
+    <Compile Include="Interfaces\Services\IMembershipService.cs" />
+    <Compile Include="Interfaces\Services\IReflectionService.cs" />
+    <Compile Include="Interfaces\Services\IRoleService.cs" />
+    <Compile Include="Interfaces\Services\ISettingsService.cs" />
+    <Compile Include="Interfaces\UnitOfWork\IUnitOfWork.cs" />
+    <Compile Include="Interfaces\UnitOfWork\IUnitOfWorkManager.cs" />
+    <Compile Include="LocalizedString.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UrlTypes.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -80,17 +157,7 @@
       <Name>Chamber.Utilities</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Constants\" />
-    <Folder Include="DomainModel\Activity\" />
-    <Folder Include="DomainModel\Entities\Static\" />
-    <Folder Include="DomainModel\Enums\" />
-    <Folder Include="DomainModel\Exceptions\" />
-    <Folder Include="DomainModel\General\" />
-    <Folder Include="DomainModel\LinqKit\" />
-    <Folder Include="Events\" />
-    <Folder Include="Interfaces\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

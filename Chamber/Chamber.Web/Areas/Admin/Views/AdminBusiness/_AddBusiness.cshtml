@@ -1,0 +1,30 @@
+﻿@model Chamber.Web.Areas.Admin.ViewModels.BusinessViewModel
+
+
+<div class="col-md-12">
+    <p><i class="fa fa-building-o"></i> <span style="font-weight: 800;">Add a Business</span> </p>
+    <div style="border:1px solid #3b5998"></div>
+</div>
+<div class="col-md-10">
+    @*<a href="@Url.Action("AddBusiness", "AdminBusiness")" class="btn btn-default">Enter Business Information Here</a>*@
+    @using (Html.BeginForm("AddBusiness", "AdminBusiness", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <br />
+            <div class="form-group">
+                <label for="Name">Business Name</label>
+                @Html.TextBoxFor(x => x.Name, new { @class = "form-control", maxlength = 200 })
+            </div>
+            <div class="form-group">
+                <label for="PhysicalCity">Business City</label>
+                @Html.TextBoxFor(x => x.PhysicalCity, new { @class = "form-control", maxlength = 100 })
+            </div>
+            <div class="form-group">
+                <label for="PhysicalState">Business State</label>
+                @Html.DropDownListFor(x => x.PhysicalState, new SelectList(Model._stateViewModel.allStates, "Name", "Name"), "Select.....", new { @class = "form-control", @id = "PhysicalState" })
+            </div>
+            <div class="submit-holder">
+                <button type="submit" class="btn btn-default">Add Business</button>
+            </div>
+    }
+</div>

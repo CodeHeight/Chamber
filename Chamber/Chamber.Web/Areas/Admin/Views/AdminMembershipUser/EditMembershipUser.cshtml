@@ -1,0 +1,86 @@
+﻿@using Chamber.Domain.Constants
+@model Chamber.Web.Areas.Admin.ViewModels.MembershipUserViewModel
+
+@{
+    ViewBag.Title = "Edit Registered User";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="pageTitle"><span style="font-weight: 800">Administration:</span> Registered Users</h2>
+            </div>
+        </div>
+    </div>
+</section>
+<br />
+
+<div class="row">
+    <div class="col-md-3 col-sm-3">
+        @Html.Partial("_EditMembershipUserDetails", Model)
+    </div>
+    <div class="col-md-5 col-sm-5">
+        <div class="col-md-12">
+            <p><i class="fa fa-save"></i> <span style="font-weight: 800;">Update Registered User</span></p>
+            <div style="border:1px solid #3b5998"></div>
+        </div>
+        <div class="col-md-12">
+            @using (Html.BeginForm("EditMembershipUser", "AdminMembershipUser", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-register" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-group">
+                    <img class="img-polaroid" src="@AppHelpers.MemberImage(Model.Avatar, Model.Email, Model.MembershipUserId, SiteConstants.Instance.GravatarProfileSize)" alt="@Model.DisplayName">
+                    <br />
+                    <label for="files">Upload a new profile picture</label>
+                    <div class="input-group">
+                        <input type="file" name="files" id="files" value="">
+                    </div>
+                    @Html.ValidationMessageFor(x => x.Files)
+                </div>
+                <div class="form-group">
+                    <label for="EditEmail">Email</label>
+                    @Html.TextBoxFor(x => x.EditEmail, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label for="EditFirstName">First Name</label>
+                    @Html.TextBoxFor(x => x.EditFirstName, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label for="EditLastName">Last Name</label>
+                    @Html.TextBoxFor(x => x.EditLastName, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label for="EditCity">City</label>
+                    @Html.TextBoxFor(x => x.EditCity, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label for="EditState">State</label>
+                    @Html.DropDownListFor(x => x.EditState, new SelectList(Model._statesViewModel.allStates, "Name", "Name"), "Select.....", new { @class = "form-control", @id = "EditState" })
+                    @Html.ValidationMessageFor(x => x.EditState)
+                </div>
+                <div class="form-group">
+                    <label for="EditDisplayName">Display Name</label>
+                    @Html.TextBoxFor(x => x.EditDisplayName, new { @class = "form-control" })
+                </div>
+
+                <div class="submit-holder">
+                    <div class="col-md-6">
+                        @Html.HiddenFor(x => x.MembershipUserId)
+                        <button type="submit" class="btn btn-default">Update User Profile</button>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="@Url.Action("MembershipUser", "AdminMembershipUser")" class="btn btn-danger">Nevermind, No Update</a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-3">
+        <div class="row">
+            @Html.Partial("_MembershipUserDashboard", Model)
+        </div>
+    </div>
+</div>

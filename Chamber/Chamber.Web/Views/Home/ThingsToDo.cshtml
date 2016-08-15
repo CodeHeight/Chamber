@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "ThingsToDo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="pageTitle">Things to do in County</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+@*<section id="content">
+        <div class="container content">
+            <!-- Service Blocks -->
+            <div class="row">
+                <div class="col-md-12">
+                    <article class="item column-1">
+                        <header class="item_header">
+                            <h3></h3>
+                        </header>
+                        <!-- Introtext -->
+                        <div>
+                            <p>
+                                &nbsp;
+                            </p>
+                        </div>
+                        <!-- info BOTTOM -->
+                    </article><!-- end item -->
+                </div>
+            </div>
+        </div>
+    </section>*@
+<br /><br /><br />
+<div class="our-projects">
+    <div class="row" style="text-align: center;">
+        <div class="col-lg-3" style="text-align: center;">
+            <center><img class="img-responsive" src="~/Content/img/birds/bird_175x175.jpg" style="width: 100px; height: 100px; text-align: center;" alt=""></center>
+            <h3>Piedmont Plateau Birding Trail</h3>
+            <p>County is One of Nine Counties in East Central Alabama with a total of Thirty-four Birding Sites.</p>
+            <a href="@Url.Action("Piedmont", "ThingsToDo")" class="btn btn-default">More Information</a>
+        </div>
+        <div class="col-lg-3">
+            <center><img class="img-responsive" src="~/Content/img/logos/logo_farm.png" style="width: 125px; height: 100px; text-align: center;" alt=""></center>
+            <h3>Meet the Alpacas</h3>
+            <p>From September to March every year, <br />come by the farm to see the alpacas up close.</p>
+            <a href="https://www.southernstarfarm.us" target="_blank" class="btn btn-default">More Information</a>
+        </div>
+        <div class="col-lg-3">
+            <center><img class="img-responsive" src="~/Content/img/logos/GoldmineRidge.png" style="width: 100px; height: 100px; text-align: center;" alt=""></center>
+            <h3>Camping & RV Park</h3>
+            <p>Camping in beautiful County, Alabama.<br />Come stay with us!</p>
+            <a href="http://www.goldmineridgeal.com" target="_blank" class="btn btn-default">More Information</a>
+        </div>
+        <div class="col-lg-3">
+            <center><img class="img-responsive" src="~/Content/img/team/defaultbusiness.png" style="width: 100px; height: 100px; text-align: center;" alt=""></center>
+            <h3>Coosa Hiker Hostel</h3>
+            <p>We are located 5 miles from the Eastern<br />Continental Trail and 7 miles from the Coosa Trail.</p>
+            <a href="http://coosahikerhostel.weebly.com/" target="_blank" class="btn btn-default">More Information</a>
+        </div>
+    </div>
+</div>

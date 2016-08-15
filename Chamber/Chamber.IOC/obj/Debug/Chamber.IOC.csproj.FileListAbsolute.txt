@@ -36,3 +36,13 @@ C:\Github\Chamber\Chamber\Chamber.IOC\bin\Debug\System.Web.WebPages.Razor.xml
 C:\Github\Chamber\Chamber\Chamber.IOC\obj\Debug\Chamber.IOC.csprojResolveAssemblyReference.cache
 C:\Github\Chamber\Chamber\Chamber.IOC\obj\Debug\Chamber.IOC.dll
 C:\Github\Chamber\Chamber\Chamber.IOC\obj\Debug\Chamber.IOC.pdb
+C:\Github\Chamber\Chamber\Chamber.IOC\bin\Debug\Chamber.Utilities.dll
+C:\Github\Chamber\Chamber\Chamber.IOC\bin\Debug\EFCache.dll
+C:\Github\Chamber\Chamber\Chamber.IOC\bin\Debug\HtmlAgilityPack.dll
+C:\Github\Chamber\Chamber\Chamber.IOC\bin\Debug\HtmlSanitizationLibrary.dll
+C:\Github\Chamber\Chamber\Chamber.IOC\bin\Debug\AntiXssLibrary.dll
+C:\Github\Chamber\Chamber\Chamber.IOC\bin\Debug\Chamber.Utilities.pdb
+C:\Github\Chamber\Chamber\Chamber.IOC\bin\Debug\HtmlAgilityPack.pdb
+C:\Github\Chamber\Chamber\Chamber.IOC\bin\Debug\HtmlAgilityPack.xml
+C:\Github\Chamber\Chamber\Chamber.IOC\bin\Debug\HtmlSanitizationLibrary.xml
+C:\Github\Chamber\Chamber\Chamber.IOC\bin\Debug\AntiXssLibrary.xml

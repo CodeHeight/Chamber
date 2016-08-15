@@ -1,0 +1,218 @@
+﻿@using Chamber.Web.Application.ExtensionMethods
+@model Chamber.Web.ViewModels.MemberFrontEndEditViewModel
+
+@{
+    ViewBag.Title = "Edit Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var settings = Html.Settings();
+}
+
+
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="pageTitle">Update your Chamber profile</h2>
+            </div>
+        </div>
+    </div>
+</section>
+<br />
+
+
+<div class="row">
+    <div class="col-md-4 col-sm-4">
+        <div class="col-md-12">
+            <p><i class="fa fa-user"></i> <span style="font-weight: 800;">Your Profile details</span> </p>
+            <div style="border:1px solid #3b5998"></div>
+        </div>
+        <div class="col-md-12">
+            <div class="panel-group" id="accordion-alt3">
+                <!-- Panel. Use "panel-XXX" class for different colors. Replace "XXX" with color. -->
+                <div class="panel">
+                    <!-- Panel heading -->
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion-alt3" href="#collapseOne-alt3">
+                                <i class="fa fa-angle-right"></i> Chamber Membership
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne-alt3" class="panel-collapse collapse">
+                        <!-- Panel body -->
+                        <div class="panel-body">
+                            You have been a member since January 1st, 2016
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion-alt3" href="#collapseTwo-alt3">
+                                <i class="fa fa-angle-right"></i> Membership Level
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo-alt3" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            Business II
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion-alt3" href="#collapseThree-alt3">
+                                <i class="fa fa-angle-right"></i> Business Name
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseThree-alt3" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            Company XYZ
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion-alt3" href="#collapseFour-alt3">
+                                <i class="fa fa-angle-right"></i> Organization Classification
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseFour-alt3" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            Retail Trade
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <br />
+            <table class="table table-bordered table-striped">
+                <tbody>
+                    <tr>
+                        <td>
+                            <strong>Please contact: </strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>
+                                <a href="https://www.southernstartech.us" target="_blank" alt="Southern Star Technology">
+                                    <img style="border: none; width: 130px; height:50px;" src="~/Content/img/OfficialLogo.png" />
+                                </a>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>* module currently not available: data above is static</strong>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-4">
+        @using (Html.BeginForm("Edit", "Members", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-register" }))
+        {
+            @Html.HiddenFor(x => x.Id)
+            @Html.ValidationSummary(true)
+
+            <div class="form-group">
+                <img class="img-polaroid" src="@AppHelpers.MemberImage(Model.Avatar, Model.Email, Model.Id, SiteConstants.Instance.GravatarProfileSize)" alt="@Model.DisplayName">
+                <br />
+                <label for="files">Upload a new profile picture</label>
+                <div class="input-group">
+                    <input type="file" name="files" id="files" value="">
+                </div>
+                @Html.ValidationMessageFor(x => x.Files)
+            </div>
+                <div class="form-group">
+                    <label for="DisplayName">Display Name</label>
+                    @Html.TextBoxFor(x => x.DisplayName, new { type = "text", @class = "form-control", placeholder = "", @maxlength = "50" })
+                    @Html.ValidationMessageFor(x => x.DisplayName)
+                </div>
+                <div class="form-group">
+                    <label for="FirstName">First Name</label>
+                    @Html.TextBoxFor(x => x.FirstName, new { type = "text", @class = "form-control", placeholder = "" })
+                    @Html.ValidationMessageFor(x => x.FirstName)
+                </div>
+                <div class="form-group">
+                    <label for="LastName">Last Name</label>
+                    @Html.TextBoxFor(x => x.LastName, new { type = "text", @class = "form-control", placeholder = "" })
+                    @Html.ValidationMessageFor(x => x.LastName)
+                </div>
+                <div class="form-group">
+                    <label for="City">City</label>
+                    @Html.TextBoxFor(x => x.City, new { type = "text", @class = "form-control", placeholder = "" })
+                    @Html.ValidationMessageFor(x => x.City)
+                </div>
+                <div class="form-group">
+                    <label for="State">State</label>
+                    @*@Html.TextBoxFor(x => x.State, new { type = "text", @class = "form-control", placeholder = "" })
+                        @Html.ValidationMessageFor(x => x.State)*@
+                    @Html.DropDownListFor(x => x.State, new SelectList(Model._stateViewModel.allStates, "Name", "Name"), "Select.....", new { @class = "form-control", @id = "State" })
+                    @Html.ValidationMessageFor(x => x.State)
+                </div>
+                @*<div class="form-group">
+                        <label for="Email">Email</label>
+                        @Html.TextBoxFor(x => x.Email, new { type = "email", @class = "form-control", placeholder = "" })
+                        @Html.ValidationMessageFor(x => x.Email)
+                    </div>*@
+                <table class="table">
+                    <tr>
+                        <td>
+                            <div class="submit-holder">
+                                <button type="submit" class="btn btn-default">Save</button>
+                            </div>
+                        </td>
+                        <td>
+                            <a href="@Url.Action("ChangePassword", "Members")" class=" btn btn-default"><span>Change your Password</span></a>
+                        </td>
+                    </tr>
+                </table>
+
+        }
+    </div>
+    <div class="col-md-3 col-sm-3">
+        <div class="row">
+            <div class="col-md-12">
+                <p><i class="fa fa-volume-up"></i> Advertisements</p>
+                <div style="border:1px solid #3b5998"></div>
+            </div>
+            @*<div class="col-md-12 sponsor-list">
+                    <img src="~/Content/img/ad/OfficialLogo.png" class="img-responsive  img-rounded show-in-modal">
+                    @*<p class="sponsor-name">Southern Star Technology</p>
+                    <p class="sponsor-url"><a href="http://www.southernstartech.us" target="_blank">Southern Star Technology</a></p>
+                    <p class="sponsor-description">We build apps for all your business needs.</p>
+                </div>*@
+            <div class="col-md-12 sponsor-list">
+                <img src="~/Content/img/ad/logo_farm.png" class="img-responsive  img-rounded show-in-modal">
+                @*<p class="sponsor-name">Southern Star Farm</p>*@
+                <p class="sponsor-url"><a href="http://www.southernstarfarm.us" target="_blank">Southern Star Farm</a></p>
+                <p class="sponsor-description">Alpaca fashions made with real alpaca fiber.</p>
+            </div>
+            <div class="col-md-12 sponsor-list">
+                <img src="~/Content/img/ad/advertise6.png" style="width: 150px; height: 120px;" class="img-responsive  img-rounded show-in-modal">
+                <p class="sponsor-url">
+                    <a href="@Url.Action("Contact", "Home")">Advertise Here</a>
+                </p>
+                <p class="sponsor-description">Members get discounted advertising price.</p>
+            </div>
+            @*<div class="col-md-12 sponsor-list">
+                    <img src="~/Content/img/ad/SouthernStarPetLogo.jpg" class="img-responsive  img-rounded show-in-modal">
+                    <p class="sponsor-url"><a href="http://www.southernstarpet.com" target="_blank">Southern Star Pet</a></p>
+                    <p class="sponsor-description">Board your pets with the best in Lake Martin area.</p>
+                </div>*@
+        </div>
+    </div>
+</div>
+
+
+
+

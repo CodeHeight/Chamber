@@ -1,0 +1,183 @@
+﻿@using Chamber.Domain.Constants
+@model Chamber.Web.Areas.Admin.ViewModels.UpdateBusinessViewModel
+@{
+    ViewBag.Title = "UpdateBusiness";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="pageTitle"><span style="font-weight: 800">Administration:</span> Business</h2>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="content">
+    <div class="container">
+        <div class="row">
+            <div class="about">
+                <div id="about" class="panel-default">
+                    @using (Html.BeginForm("UpdateBusiness", "AdminBusiness", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-register" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(x => x.Id)
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <p><i class="fa fa-bars"></i> <span style="font-weight: 800;">Business Information</span></p>
+                                <div style="border:1px solid #3b5998"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <div class="col-md-6">
+                                    <label for="Name">Business Name</label>
+                                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control", maxlength = 200 })
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="Name">Classification</label>
+                                    @Html.DropDownListFor(model => model.Classification_Id, new SelectList(Model._allClassificationsViewModel.allClassifications, "Id", "Name"), "Select.....", new { @class = "form-control", @id = "Classification" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <div class="col-md-6">
+                                    <label for="Name">Physical Address</label>
+                                    @Html.TextBoxFor(x => x.PhysicalAddress, new { @class = "form-control", maxlength = 100 })
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="Name">Mailing Address</label>
+                                    @Html.TextBoxFor(x => x.MailingAddress, new { @class = "form-control", maxlength = 100 })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <div class="col-md-6">
+                                    <label for="Name">Physical City</label>
+                                    @Html.TextBoxFor(x => x.PhysicalCity, new { @class = "form-control", maxlength = 100 })
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="Name">Mailing City</label>
+                                    @Html.TextBoxFor(x => x.MailingCity, new { @class = "form-control", maxlength = 100 })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <div class="col-md-6">
+                                    <label for="Name">Physical State</label>
+                                    @Html.DropDownListFor(model => model.PhysicalState, new SelectList(Model._stateViewModel.allStates, "Name", "Name"), "Select.....", new { @class = "form-control", @id = "State" })
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="Name">Mailing State</label>
+                                    @Html.DropDownListFor(model => model.MailingState, new SelectList(Model._stateViewModel.allStates, "Name", "Name"), "Select.....", new { @class = "form-control", @id = "State" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <div class="col-md-6">
+                                    <label for="Name">Physical Zipcode</label>
+                                    @Html.TextBoxFor(x => x.PhysicalZipcode, new { @class = "form-control", maxlength = 5 })
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="Name">Mailing Zipcode</label>
+                                    @Html.TextBoxFor(x => x.MailingZipcode, new { @class = "form-control", maxlength = 5 })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <div class="col-md-6">
+                                    <label for="Name">Phone</label>
+                                    @Html.TextBoxFor(x => x.Phone, new { @class = "form-control", maxlength = 15 })
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="Name">Web Address</label>
+                                    @Html.TextBoxFor(x => x.WebAddress, new { @class = "form-control", maxlength = 100 })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <div class="col-md-12">
+                                    <label for="Name">Description</label>
+                                    @Html.TextAreaFor(model => model.Description, new { @class = "form-control", title = "Description", rows = "5", maxlength = "500" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <p><i class="fa fa-bars"></i> <span style="font-weight: 800;">Membership Details</span></p>
+                                <div style="border:1px solid #3b5998"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <div class="col-md-6">
+                                    <label for="Name">Activate</label>
+                                    @Html.DropDownListFor(model => model.Active, new SelectList(Model._booleanViewModel.ListBoolean, "Condition", "Name"), "Select.....", new { @class = "form-control", @id = "Active" })
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="Name">Membership Level</label>
+                                    @Html.DropDownListFor(model => model.MembershipLevel_Id, new SelectList(Model._allMembershipLevelViewModel.allMembershipLevels, "Id", "Name"), "Select.....", new { @class = "form-control", @id = "MembershipLevel" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <div class="col-md-6">
+                                    <label for="Name">Chamber Member</label>
+                                    @*<a href="@Url.Action("UpdateDues", "AdminBusiness", new { id = Model.MembershipUser_Id })" class="btn-sm btn-success">
+                                            View Member
+                                        </a>*@
+                                    @Html.DropDownListFor(model => model.MembershipUser_Id, new SelectList(Model._allMembersListViewModel.AllMembershipUsersList, "Id", "FullName"), "Select.....", new { @class = "form-control", @id = "MembershipUser" })
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="Name">Save into Business Directory</label>
+                                    @Html.DropDownListFor(model => model.Completed, new SelectList(Model._booleanViewModel.ListBoolean, "Condition", "Name"), "Select.....", new { @class = "form-control", @id = "Complete" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <p><i class="fa fa-bars"></i> <span style="font-weight: 800;">Business Logo</span></p>
+                                <div style="border:1px solid #3b5998"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <div class="col-md-6">
+                                    <label for="files">Upload business logo picture</label><br />
+                                    <img class="img-business" src="@AppHelpers.BusinessImage(Model.Avatar, Model.Id, SiteConstants.Instance.GravatarProfileSize)" alt="@Model.Name"><br />
+                                    <div class="input-group">
+                                        <br /><input type="file" name="files" id="files" value="">
+                                    </div>
+                                    @Html.ValidationMessageFor(x => x.Files)
+                                </div>
+                                <div class="col-md-6">
+                                    &nbsp;
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <div class="submit-holder">
+                                    <div class="col-md-4 col-md-offset-1">
+                                        <button type="submit" class="btn btn-success">Save Business Information</button>
+                                    </div>
+                                    <div class="col-md-4 col-md-offset-2">
+                                        <a href="@Url.Action("Business", "AdminBusiness")" class="btn btn-danger">Nevermind, No Update</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,104 @@
+﻿@model Chamber.Web.Areas.Admin.ViewModels.MembershipUserViewModel
+
+
+<div class="col-md-12">
+    <p><i class="fa fa-user"></i> <span style="font-weight: 800;">User Details</span></p>
+    <div style="border:1px solid #3b5998"></div>
+</div>
+<div class="col-md-12">
+    <br />
+    <table class="table table-bordered table-striped">
+        <tbody>
+            <tr>
+                <td>
+                    <strong>Assigned Role</strong>
+                </td>
+                <td>
+                    <strong>@Model.Role</strong>
+                </td>
+                <td>
+                    <a href="@Url.Action("RoleIndex", "AdminRole", new { id = Model.MembershipUserId })" class="btn-sm">
+                        <span class="fa fa-edit" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Registered Businesses</strong>
+                </td>
+                <td>
+                    @if (Model.RegisteredBusinessCount != null)
+                    {
+                        <strong>@Model.RegisteredBusinessCount</strong>
+                    }
+                    else
+                    {
+                        <strong>0</strong>
+                    }
+                </td>
+                <td>
+                    <a href="@Url.Action("BusinessList", "AdminMembershipUser", new { id = Model.MembershipUserId })" class="btn-sm">
+                        <span class="fa fa-edit" aria-hidden="true"></span>
+                    </a>
+                </td>
+            </tr>
+            @*<tr>
+                    <td>
+                        <strong>Business Classificationes</strong>
+                    </td>
+                    <td>
+                        <strong></strong>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("EditMembershipUser", "AdminMembershipUser", new { id = Model.MembershipUserId })" class="btn-sm">
+                            <span class="fa fa-edit" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                </tr>*@
+            @*<tr>
+                    <td>
+                        <strong>Membership Level</strong>
+                    </td>
+                    <td>
+                        <strong></strong>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("EditMembershipUser", "AdminMembershipUser", new { id = Model.MembershipUserId })" class="btn-sm">
+                            <span class="fa fa-edit" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                </tr>*@
+            @*<tr>
+                    <td>
+                        <strong>Manage Membership Dues</strong>
+                    </td>
+                    <td>
+                        <strong></strong>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("BusinessList", "AdminMembershipUser", new { id = Model.MembershipUserId })" class="btn-sm">
+                            <span class="fa fa-edit" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                </tr>*@
+            @*<tr>
+                    <td>
+                        <strong>Membership Dues Amount Paid</strong>
+                    </td>
+                    <td>
+                        <strong></strong>
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>*@
+        </tbody>
+    </table>
+
+    @*<div class="submit-holder">
+            <div class="col-md-6">
+                @Html.HiddenFor(x => x.MembershipUserId)
+                <a href="@Url.Action("EditMembershipUserDetails", "AdminMembershipUser", new { id = Model.MembershipUserId })" class="btn btn-default">Manage User Details</a>
+            </div>
+        </div>*@
+</div>

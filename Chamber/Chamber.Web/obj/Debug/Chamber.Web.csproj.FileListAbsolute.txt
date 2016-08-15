@@ -59,3 +59,13 @@ C:\Github\Chamber\Chamber\Chamber.Web\bin\Newtonsoft.Json.xml
 C:\Github\Chamber\Chamber\Chamber.Web\obj\Debug\Chamber.Web.csprojResolveAssemblyReference.cache
 C:\Github\Chamber\Chamber\Chamber.Web\obj\Debug\Chamber.Web.dll
 C:\Github\Chamber\Chamber\Chamber.Web\obj\Debug\Chamber.Web.pdb
+C:\Github\Chamber\Chamber\Chamber.Web\bin\Chamber.Services.dll
+C:\Github\Chamber\Chamber\Chamber.Web\bin\HtmlAgilityPack.dll
+C:\Github\Chamber\Chamber\Chamber.Web\bin\HtmlSanitizationLibrary.dll
+C:\Github\Chamber\Chamber\Chamber.Web\bin\AntiXssLibrary.dll
+C:\Github\Chamber\Chamber\Chamber.Web\bin\EFCache.dll
+C:\Github\Chamber\Chamber\Chamber.Web\bin\Chamber.Services.pdb
+C:\Github\Chamber\Chamber\Chamber.Web\bin\HtmlAgilityPack.pdb
+C:\Github\Chamber\Chamber\Chamber.Web\bin\HtmlAgilityPack.xml
+C:\Github\Chamber\Chamber\Chamber.Web\bin\HtmlSanitizationLibrary.xml
+C:\Github\Chamber\Chamber\Chamber.Web\bin\AntiXssLibrary.xml

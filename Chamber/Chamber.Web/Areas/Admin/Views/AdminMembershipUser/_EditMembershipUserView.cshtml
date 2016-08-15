@@ -1,0 +1,69 @@
+﻿@model Chamber.Web.Areas.Admin.ViewModels.MembershipUserViewModel
+
+
+<div class="col-md-12">
+    <p><i class="fa fa-user"></i> <span style="font-weight: 800;">User Profile</span></p>
+    <div style="border:1px solid #3b5998"></div>
+</div>
+<div class="col-md-12">
+    <br />
+    <table class="table table-bordered table-striped">
+        <tbody>
+            <tr>
+                <td>
+                    <strong>Email</strong>
+                </td>
+                <td>
+                    <strong></strong>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>First Name</strong>
+                </td>
+                <td>
+                    <strong></strong>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Last Name</strong>
+                </td>
+                <td>
+                    <strong></strong>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Display Name</strong>
+                </td>
+                <td>
+                    <strong></strong>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>City</strong>
+                </td>
+                <td>
+                    <strong></strong>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>State</strong>
+                </td>
+                <td>
+                    <strong></strong>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="submit-holder">
+        <div class="col-md-6">
+            @Html.HiddenFor(x => x.MembershipUserId)
+            <a href="@Url.Action("EditMembershipUser", "AdminMembershipUser", new {area = "Admin", id = Model.MembershipUserId }, null)" class="btn btn-default">Manage User Profile</a>
+        </div>
+    </div>
+</div>

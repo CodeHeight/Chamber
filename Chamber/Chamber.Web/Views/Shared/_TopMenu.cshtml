@@ -1,0 +1,105 @@
+﻿
+@{
+    var active = string.Empty;
+    if (TempData[AppConstants.CurrentController].ToString() == "members" && TempData[AppConstants.CurrentAction].ToString() == "login")
+    {
+        active = "active";
+    }
+    if (TempData[AppConstants.CurrentController].ToString() == "members" && TempData[AppConstants.CurrentAction].ToString() == "register")
+    {
+        active = "active";
+    }
+    if (TempData[AppConstants.CurrentController].ToString() == "members" && TempData[AppConstants.CurrentAction].ToString() == "edit")
+    {
+        active = "active";
+    }
+    if (TempData[AppConstants.CurrentController].ToString() == "members" && TempData[AppConstants.CurrentAction].ToString() == "logout")
+    {
+        active = "active";
+    }
+}
+
+<header>
+    <div class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @*<a class="navbar-brand" href="@Url.Action("Index", "Home")">
+                        <img src="~/Content/img/menuLogo.png" alt="logo" />
+                    </a>*@
+                @Html.Partial("_GenericMessage")
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="@(TempData[AppConstants.CurrentController].ToString() == "home" && TempData[AppConstants.CurrentAction].ToString() == "index" ? "active" : "")"><a href="@Url.Action("Index", "Home")">Home</a></li>
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">Chamber <b class="caret"></b></a>
+                        <ul role="menu" class="dropdown-menu">
+                            <li><a href="@Url.Action("Chamber", "Home")">What is the Chamber</a></li>
+                            <li><a href="@Url.Action("Structure", "Home")">Our structure and dates</a></li>
+                            <li><a href="@Url.Action("Mission", "Home")">Mission</a></li>
+                            <li><a href="@Url.Action("About", "Home")">Board of Directors</a></li>
+                            <li><a href="@Url.Action("Contact", "Home")">Contact Information</a></li>
+                            <li><a href="@Url.Action("UnderDevelopment", "Home")">In the News</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">About <b class="caret"></b></a>
+                        <ul role="menu" class="dropdown-menu">
+                            <li><a href="@Url.Action("Coosa", "Home")">Your County</a></li>
+                            <li><a href="@Url.Action("ThingsToDo", "Home")">Things To Do</a></li>
+                            <li><a href="@Url.Action("UnderDevelopment", "Home")">Keep It In Your County</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="@(TempData[AppConstants.CurrentController].ToString() == "home" && TempData[AppConstants.CurrentAction].ToString() == "join" ? "active" : "")"><a href="@Url.Action("Join", "Home")">Join</a></li>
+                    <li class="@(TempData[AppConstants.CurrentController].ToString() == "event" && TempData[AppConstants.CurrentAction].ToString() == "calendar" ? "active" : "")"><a href="@Url.Action("Calendar", "Event")">Calendar</a></li>
+                    @*<li class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">Events <b class="caret"></b></a>
+                            <ul role="menu" class="dropdown-menu">
+
+                                <li><a href="@Url.Action("UnderDevelopment", "Home")">Festivals</a></li>
+                                <li><a href="@Url.Action("UnderDevelopment", "Home")">Shop Local Campaign</a></li>
+                                <li><a href="@Url.Action("UnderDevelopment", "Home")">Membership Meetings</a></li>
+                                <li><a href="@Url.Action("UnderDevelopment", "Home")">Lunch and Learn</a></li>
+                                <li><a href="@Url.Action("UnderDevelopment", "Home")">Ribbon Cutting</a></li>
+                            </ul>
+                        </li>*@
+                    @*<li><a href="@Url.Action("Contact", "Home")" class="@(TempData[AppConstants.CurrentController].ToString() == "home" && TempData[AppConstants.CurrentAction].ToString() == "contact" ? "active" : "")">Contact</a></li>*@
+                    <li class="dropdown @active">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">Members <b class="caret"></b></a>
+                        <ul role="menu" class="dropdown-menu">
+                            @if (!User.Identity.IsAuthenticated)
+                            {
+                                <li><a href="@Url.Action("Login", "Members")">Login</a></li>
+                                @*<li><a href="@Url.Action("Register", "Members")">Register</a></li>*@
+                            }
+                            else
+                            {
+                                <li><a href="@Url.Action("Edit", "Members")">Profile</a></li>
+                                <li><a href="@Url.Action("Logout", "Members")">Logout</a></li>
+                            }
+                            <li class="divider"></li>
+                            <li class="@(TempData[AppConstants.CurrentController].ToString() == "business" && TempData[AppConstants.CurrentAction].ToString() == "directory" ? "active" : "")"><a href="@Url.Action("Directory", "Business")">Business Directory</a></li>
+                            <li class="@(TempData[AppConstants.CurrentController].ToString() == "business" && TempData[AppConstants.CurrentAction].ToString() == "individual" ? "active" : "")"><a href="@Url.Action("Individual", "Business")">Individual Directory</a></li>
+                        </ul>
+                    </li>
+                    @if (User.IsInRole(AppConstants.AdminRoleName))
+                    {
+                        <li class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="fa fa-gear"></i> <b class="caret"></b></a>
+                            <ul role="menu" class="dropdown-menu">
+                                <li><a href="@Url.Action("Index", "Admin", new {area = "Admin"}, null)">Admin Tools</a></li>
+                            </ul>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+

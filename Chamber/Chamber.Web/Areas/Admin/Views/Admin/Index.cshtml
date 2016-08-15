@@ -1,0 +1,99 @@
+﻿@{
+    ViewBag.Title = "Administration";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="pageTitle">Administration Portal</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="margin-bottom-50">
+
+<section id="content">
+    <div class="container content">
+        <div class="row">
+            <div class="col-sm-4 info-blocks">
+                <i class="icon-info-blocks fa fa-users"></i>
+                <div class="info-blocks-in">
+                    <h3>Manage Users</h3>
+                    <p>Add, Edit, Remove users.  View user activity.  Authorize or disable user accounts.  </p>
+                    <a href="@Url.Action("MembershipUser", "AdminMembershipUser", new {area = "Admin"}, null)" class="btn btn-default">Let me in!</a>
+                </div>
+            </div>
+            <div class="col-sm-4 info-blocks">
+                <i class="icon-info-blocks fa fa-building-o"></i>
+                <div class="info-blocks-in">
+                    <h3>Manage Business</h3>
+                    <p>Add, Edit, Remove business. View business activity.  Manage business ownership.   </p>
+                    <a href="@Url.Action("Business", "AdminBusiness", new {area = "Admin"}, null)" class="btn btn-default">Let me in!</a>
+                </div>
+            </div>
+            <div class="col-sm-4 info-blocks">
+                <i class="icon-info-blocks fa fa-dollar"></i>
+                <div class="info-blocks-in">
+                    <h3>Manage Classifications</h3>
+                    <p>Business Classifications that all registered chamber business are assigned.</p>
+                    <a href="@Url.Action("Classification", "AdminClassification", new {area = "Admin"}, null)" class="btn btn-default">Let me in!</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 info-blocks">
+                <i class="icon-info-blocks fa fa-unlock"></i>
+                <div class="info-blocks-in">
+                    <h3>Manage Roles</h3>
+                    <p>Currently, there are only two roles: Admin and User, but you can assign ether to users.</p>
+                    <a href="@Url.Action("UnderDevelopment", "Admin", new {area = "Admin"}, null)" class="btn btn-default">Let me in!</a>
+                </div>
+            </div>
+            <div class="col-sm-4 info-blocks">
+                <i class="icon-info-blocks fa fa-stack-overflow"></i>
+                <div class="info-blocks-in">
+                    <h3>Manage Membership Levels</h3>
+                    <p>Membership Levels that are assigned to chamber members who pay their fees.   </p>
+                    <a href="@Url.Action("MembershipLevel", "AdminMembershipLevel", new {area = "Admin"}, null)" class="btn btn-default">Let me in!</a>
+                </div>
+            </div>
+            <div class="col-sm-4 info-blocks">
+                <i class="icon-info-blocks fa fa-share-square-o"></i>
+                <div class="info-blocks-in">
+                    <h3>Manage Advertising</h3>
+                    <p>Create and manage all advertising on the chamber web app.  </p>
+                    <a href="@Url.Action("UnderDevelopment", "Admin", new {area = "Admin"}, null)" class="btn btn-default">Let me in!</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 info-blocks">
+                <i class="icon-info-blocks fa fa-bookmark"></i>
+                <div class="info-blocks-in">
+                    <h3>Activity Log</h3>
+                    <p>View where registered user are navigating through the web app.</p>
+                    <a href="@Url.Action("Home", "AdminActivity", new {area = "Admin"}, null)" class="btn btn-default">Let me in!</a>
+                </div>
+            </div>
+            <div class="col-sm-4 info-blocks">
+                <i class="icon-info-blocks fa fa-spinner"></i>
+                <div class="info-blocks-in">
+                    <h3>Manage Media</h3>
+                    <p>Create and manage all media content such as newspaper or video</p>
+                    <a href="@Url.Action("UnderDevelopment", "Admin", new {area = "Admin"}, null)" class="btn btn-default">Let me in!</a>
+                </div>
+            </div>
+            <div class="col-sm-4 info-blocks">
+                <i class="icon-info-blocks fa fa-refresh"></i>
+                <div class="info-blocks-in">
+                    <h3>Manage Events</h3>
+                    <p>Create, Edit, or delete any events that the app will be displaying to the users.  </p>
+                    <a href="@Url.Action("UnderDevelopment", "Admin", new {area = "Admin"}, null)" class="btn btn-default">Let me in!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

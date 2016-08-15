@@ -1,4 +1,274 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div id="fb-root"></div>
+@*<script>
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=00000000000";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>*@
+
+<section id="featured">
+    <!-- Slider -->
+    <div id="main-slider" class="flexslider">
+        <ul class="slides">
+            <li>
+                <img src="~/Content/img/slides/road2_1440x520.jpg" alt="" />
+                <div class="flex-caption">
+                    <div class="item_introtext">
+                        <strong></strong>
+                        <p>Business potential down every road</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img src="~/Content/img/slides/WeokaCreek_1440x520.png" alt="" />
+                <div class="flex-caption">
+                    <div class="item_introtext">
+                        <strong></strong>
+                        <p></p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img src="~/Content/img/slides/playground_1440x520.png" alt="" />
+                <div class="flex-caption">
+                    <div class="item_introtext">
+                        <strong></strong>
+                        <p></p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- end slider -->
+    <div class="testimonial-area">
+        <div class="testimonial-solid">
+            <div class="container">
+                <div class="testi-icon-area">
+                    <div class="quote">
+                        <i class="fa fa-microphone"></i>
+                    </div>
+                </div>
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active">
+                            <a href="#"></a>
+                        </li>
+                    @*<li data-target="#carousel-example-generic" data-slide-to="1" class="">
+                            <a href="#"></a>
+                        </li>*@
+                    @*<li data-target="#carousel-example-generic" data-slide-to="2" class="">
+                            <a href="#"></a>
+                        </li>*@
+                    @*<li data-target="#carousel-example-generic" data-slide-to="3" class="">
+                            <a href="#"></a>
+                        </li>*@
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item active">
+                                <p>Open Source Chamber of Commerce software</p>
+                            </div>
+                        @*<div class="item active">
+                                <p style="font-weight: 800;">Pushed to Github on Aug. 15, 2016 </p>
+                                <p>
+                                    <a href="#" class="btn btn-default">Click Here</a>
+                                </p>
+                            </div>*@
+                        @*<div class="item">
+                                <p>Welcome our newest member <b>McGhee Mattress</b> of Kellyton, Alabama<br /></p>
+                                <p>
+                                    <b>- Owner: David E. McGhee</b>
+                                </p>
+                            </div>*@
+                        @*<div class="item">
+                                <p>We have a Facebook page.  Go check it out!<br /></p>
+                                <p>
+                                    <b><br /><a href="https://www.facebook.com/#" target="_blank">Chamber Facebook</a></b>
+                                </p>
+                            </div>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container-fluid">
+    <div class="aligncenter">
+        <img class="aligncenter" src="~/Content/img/Charter1.png" style="text-align: center;" />
+    </div>
+</div>
+<hr />
+<div class="our-projects">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="aligncenter"><h1 class="aligncenter">Recently Joined Business Members</h1></div>
+        </div>
+    </div>
+    <div class="row" style="text-align: center;">
+        <div class="col-lg-3">
+            <img src="~/Content/img/logos/logo_farm.png" style="width: 130px; height: 100px; text-align: center;" />
+            <p>Southern Star Farm</p>
+        </div>
+        <div class="col-lg-3">
+            <img src="~/Content/img/logos/Posh.png" style="width: 100px; height: 100px; text-align: center;" />
+            <p>Christa's Posh<br />Corner</p>
+        </div>
+        <div class="col-lg-3">
+            <img src="~/Content/img/logos/Serta_Logo_crescent.jpg" style="width: 100px; height: 100px; text-align: center;" />
+            <p>McGhee Mattress<br /> and More</p>
+        </div>
+        <div class="col-lg-3">
+            <img src="~/Content/img/logos/alabamaGraphite.jpg" style="width: 100px; height: 100px; text-align: center;" />
+            <p>Alabama Graphite</p>
+        </div>
+    </div>
+</div>
+@*<section id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="aligncenter">
+                    <h1 class="aligncenter">Chamber of Commerce is proud to sponsor:</h1><span class="clear spacer_responsive_hide_mobile " style="height:13px;display:block;"></span>
+                    <img src="~/Content/img/slides/RickNorris.jpg" alt="" />
+                    <div style="text-align: left; width: 200px;"><a href="http://www.weareblisstechnologies.com/" target="_blank"><img src="~/Content/img/logos/Bliss.png" alt="Bliss" /></a></div>
+                    <div style="padding-top: 20px;">
+                        <p>Mark your calendars for the <b>FORESTRY TAX SEMINAR: </b> July 21, 2016 6:00pm.</p>
+                        <p>
+                            To register for this free event or for additional information please call <b>256-377-4750 or 256-377-4713</b> before July 14.
+                        </p>
+                        <a href="@Url.Action("DownloadForm", "Home")" class="btn btn-default">Click here to download flyer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>*@
+<section id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="aligncenter">
+                    <h1 class="aligncenter">Join the Chamber today!</h1><span class="clear spacer_responsive_hide_mobile " style="height:13px;display:block;"></span>
+                    <p>Chamber of Commerce (CCC) is a vibrant business membership organization comprised of a cross section of business members and subscribers ranging from sole proprietors to large corporations. Connect with entrepreneurs, leaders, and executives by becoming a CCC member today and help your business grow.</p>
+                    <a href="@Url.Action("Join", "Home")" class="btn btn-default">Membership Form</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="our-projects">
+    @*<div class="row">
+            <div class="col-lg-12">
+                <div class="aligncenter"><h1 class="aligncenter"></h1></div>
+            </div>
+        </div>*@
+    <div class="row" style="text-align: center;">
+        <div class="col-lg-3">
+            &nbsp;
+        </div>
+        <div class="col-lg-3">
+            <a href="#" target="_blank">
+                <img src="~/Content/img/facebook_logo.png" style="width: 100px; height: 100px; text-align: center;" alt="">
+            </a>
+            <p>facebook.com/#</p>
+
+            <div class="fb-like" data-href="#" data-layout="standard"
+                 data-action="like" data-show-faces="true" data-share="true" style="width: 250px;">
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <a href="#" target="_blank">
+                <img src="~/Content/img/twitter.jpg" style="width: 100px; height: 100px; text-align: center;" alt="">
+            </a><br /><br />
+            <a href="#" class="twitter-follow-button" data-show-count="true" data-size="large">Follow @@Github</a>
+        </div>
+        <div class="col-lg-3">
+            &nbsp;
+        </div>
+    </div>
+</div>
+@*<div class="row">
+        <div class="services-home">
+            <div class="services-home-solid clearfix">
+                <div class="col-md-3 text-center">
+                    <span class="icons c1"><i class="icon-tools"></i></span> <div class="box-area">
+                        <h3>Entrepreneurs</h3>
+                    <p>
+                        The Network is comprised of successful entrepreneurs who understand the challenges of starting a business first hand, and educational and corporate leaders who have a passion for working with entrepreneurs to grow their businesses.
+                    </p>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center">
+                    <span class="icons c2"><i class="icon-upload"></i></span> <div class="box-area">
+                        <h3>Technology</h3>
+                    <p>
+                        The CCC educates and advocates for the latest in technology, digital, cleantech, biotech, energy and other innovative technology sectors, as well as supports the growing Internet and social media sector in # County.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center">
+                    <span class="icons c3"><i class="icon-gift"></i></span> <div class="box-area">
+                        <h3>Women's Business</h3>
+                    <p>
+                        CCC is pleased to offer a variety of programming supports women business owners and professionals. CCC has a number of signature women’s events including the Women of Influence series and Women’s Power Networking programs.
+                    </p>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center">
+                    <span class="icons c4"><i class="icon-trophy"></i></span> <div class="box-area">
+                        <h3>Enviromental</h3>
+                            <p>
+                                The mission of the CCC Green Business Network is to provide  members with a leading sustainability and environmental roadmap that acts as an up to date educational engine, resource guide and network to experts in the field.
+                            </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+@*<div id="about" class="about_us">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="aligncenter"><h1 class="aligncenter">About Us</h1><span class="clear spacer_responsive_hide_mobile " style="height:13px;display:block;"></span>
+                    # County Chamber of Commerce is a 501c(3) non-profit affiliate and <br />is dedicated to identifying and fostering business education and leadership.
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <img src="~/Content/img/CCcircle_1140x615.png">
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <h3 class="bold">OUR PROCESS</h3>
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class=""><a aria-expanded="false" href="#design" aria-controls="design" role="tab" data-toggle="tab">RESOURCES</a></li>
+                    <li class="active"><a aria-expanded="true" href="#mobile" aria-controls="mobile" role="tab" data-toggle="tab">PROGRAMS</a></li>
+                    <li><a href="#social" aria-controls="social" role="tab" data-toggle="tab">NETWORKING</a></li>
+                </ul>
+                <!-- tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane" id="design">
+                        <p>Identify and examine small business issues and engaging the small businesses in the dialog to help service their needs.</p>
+                        <p></p>
+                    </div>
+                    <div role="tabpanel" class="tab-pane active" id="mobile">
+                        <p>Inform and involve both business and government leaders to ensure the programs are visible and utilized to support business growth.</p>
+                        <p></p>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="social">
+                        <p>Serve to bring to together members who work on the same industry sectors in an non-competitive environment to network, educate themselves and stay updated on important developments in their respective business sector.</p>
+                        <p></p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+                    </div>
+                </div>*@
 

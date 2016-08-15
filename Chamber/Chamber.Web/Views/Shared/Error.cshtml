@@ -1,13 +1,172 @@
-﻿<!DOCTYPE html>
+﻿@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
 <html>
+
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Error</title>
+    <meta charset="utf-8">
+    <title>Chamber of Commerce</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Open Source Chamber of Commerce" />
+    <meta name="author" content="http://www.codeheight.com" />
+    <!-- css -->
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/fancybox/jquery.fancybox.css" rel="stylesheet">
+    <link href="~/Content/css/flexslider.css" rel="stylesheet" />
+    <link href="~/Content/et-line-font/style.css" rel="stylesheet" />
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="~/Content/img/favicon.ico">
 </head>
 <body>
-    <hgroup>
-        <h1>Error.</h1>
-        <h2>An error occurred while processing your request.</h2>
-    </hgroup>
+    <div id="wrapper">
+        <header>
+            <div class="navbar navbar-default navbar-static-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        @*<a class="navbar-brand" href="@Url.Action("Index", "Admin")">
+                                <img src="~/Content/img/menuLogo.png" alt="logo" />
+                            </a>*@
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="active"><a href="@Url.Action("Index", "Admin", new {area = "Admin"}, null)">Admin Home</a></li>
+                            <li class="dropdown">
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="#">Business <b class="caret"></b></a>
+                                <ul role="menu" class="dropdown-menu">
+                                    <li><a href="@Url.Action("Business", "AdminBusiness", new {area = "Admin"}, null)">Manage Business</a></li>
+                                    <li><a href="@Url.Action("MembershipLevel", "AdminMembershipLevel")">Business Levels</a></li>
+                                    <li><a href="@Url.Action("Classification", "AdminClassification")">Classifications</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="@Url.Action("UnderDevelopment", "Admin", new {area = "Admin"}, null)">Directory</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="@Url.Action("UnderDevelopment", "Admin", new {area = "Admin"}, null)">Events</a></li>
+                            <li><a href="@Url.Action("UnderDevelopment", "Admin", new {area = "Admin"}, null)">Media</a></li>
+                            <li><a href="@Url.Action("UnderDevelopment", "Admin", new {area = "Admin"}, null)">Advertising</a></li>
+                            <li class="dropdown">
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="#">Members <b class="caret"></b></a>
+                                <ul role="menu" class="dropdown-menu">
+                                    <li><a href="@Url.Action("Edit", "Members")">Profile</a></li>
+                                    <li><a href="@Url.Action("Logout", "Members", new { area = "" })">Logout</a></li>
+                                    <li><a href="@Url.Action("MembershipUser", "AdminMembershipUser", new {area = "Admin"}, null)">Manage Registered Users</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="@Url.Action("UnderDevelopment", "Admin", new {area = "Admin"}, null)">Directory</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="@Url.Content("~/Home/Index")">Exit Administration</a></li>
+
+                            @*<li class="dropdown">
+                                    <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="fa fa-gear"></i> <b class="caret"></b></a>
+                                    <ul role="menu" class="dropdown-menu">
+                                        <li><a href="@Url.Action("Business", "Admin")">Business</a></li>
+                                        <li><a href="@Url.Action("Classification", "Admin")">Classifications</a></li>
+                                        <li><a href="@Url.Action("Membership", "Admin")">Membership</a></li>
+                                        <li><a href="@Url.Action("Users", "Admin")">Registered Users</a></li>
+                                    </ul>
+                                </li>*@
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        @Html.Partial("_GenericMessage")
+
+
+        <section>
+
+            <section id="inner-headline">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h2 class="pageTitle">Chamber of Commerce</h2>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <br />
+            <div class="row">
+                <div class="col-sm-12">
+                    <img style="padding-left: 200px;" src="~/Content/images/error.jpg" />
+                </div>
+            </div>
+
+
+        </section>
+
+
+        <footer>
+            <div id="sub-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="copyright">
+                                <p>
+                                    <span>
+                                        Developed By:<br /> <a href="http://www.southernstartech.us" target="_blank" alt="Southern Star Technology">
+                                            <img style="border: none; width: 130px; height:50px;" src="~/Content/img/SS_Tech_white.png" />
+                                        </a>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="copyright">
+                                <p>
+                                    <span>
+                                        <a href="http://chamber.azurewebsites.net" alt="Chamber of Commerce">
+                                            <img style="border: none;" src="~/Content/img/footerLogo.png" class="footerlogo" />
+                                        </a>
+                                        <br /> Copyright © 2016
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <ul class="social-network">
+                                <li><a target="_blank" href="#" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                <li><a target="_blank" href="#" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                                @*<li><a href="#" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                                    <li><a href="#" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
+                                    <li><a href="#" data-placement="top" title="Google plus"><i class="fa fa-google-plus"></i></a></li>*@
+                            </ul>
+                            <div class="widget">
+                                <h5 class="widgetheading">Our Contact</h5>
+                                <address>
+                                    <strong>Chamber of Commerce</strong><br>
+                                    P.O. Box <br>
+                                    Montgomery, AL 36106
+                                </address>
+                                <p>
+                                    <i class="icon-phone"></i> (256) 537-3004  <br>
+                                    <i class="icon-envelope-alt"></i> chamber@gmail.com
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+    <script src="~/Scripts/js/jquery.js"></script>
+    <script src="~/Scripts/js/jquery.easing.1.3.js"></script>
+    <script src="~/Scripts/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/js/jquery.fancybox.pack.js"></script>
+    <script src="~/Scripts/js/jquery.fancybox-media.js"></script>
+    <script src="~/Scripts/js/portfolio/jquery.quicksand.js"></script>
+    <script src="~/Scripts/js/portfolio/setting.js"></script>
+    <script src="~/Scripts/js/jquery.flexslider.js"></script>
+    <script src="~/Scripts/js/animate.js"></script>
+    <script src="~/Scripts/js/custom.js"></script>
+
 </body>
 </html>

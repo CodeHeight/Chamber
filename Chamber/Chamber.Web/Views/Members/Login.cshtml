@@ -1,0 +1,112 @@
+﻿@using Chamber.Web.Application.ExtensionMethods
+@model Chamber.Web.ViewModels.LoginViewModel
+@{
+    ViewBag.Title = "Chamber Administrators";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="pageTitle">Login To The Chamber App</h2>
+            </div>
+        </div>
+    </div>
+</section>
+<br />
+
+<div class="row">
+    <div class="col-md-4 col-sm-4">
+        <div class="col-md-12">
+            <p>
+                @*<i class="fa fa-question-circle"></i>*@
+                <span style="font-weight: 800;"></span>
+            </p>
+            <div style="border:0px solid #3b5998"></div>
+        </div>
+        <div style="text-align:center;" class="col-md-12">
+            <img src="~/Content/img/AL-Coosa.gif" />
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-4">
+        @if (Html.Settings().RegistrationEnabled != false)
+        {
+            <div class="mainlogonform">
+                <h3>@ViewBag.Title</h3>
+                @using (Html.BeginForm("Login", "Members", FormMethod.Post, new { @class = "form-login" }))
+                {
+                    @Html.ValidationSummary(false)
+                    @Html.AntiForgeryToken()
+
+                    <p class="help-block">
+                        <span>Please enter your registered email and password.</span>
+                    </p>
+
+                    <div class="form-group">
+                        <label for="Email">Email</label>
+                        @Html.TextBoxFor(x => x.Email, new { type = "email", @class = "form-control", placeholder = "" })
+                        @Html.ValidationMessageFor(x => x.Email)
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Password">Password</label>
+                        @Html.TextBoxFor(x => x.Password, new { type = "password", @class = "form-control", placeholder = "" })
+                        @Html.ValidationMessageFor(x => x.Password)
+                    </div>
+
+                        <div class="checkbox">
+                            @using (Html.BeginLabelFor(m => m.RememberMe, new { @class = "checkbox" }))
+                    {
+                                @Html.CheckBoxFor(m => m.RememberMe)
+                            }
+                            @Html.ValidationMessageFor(m => m.RememberMe)
+                        </div>
+
+                            <div class="submit-holder">
+                                <button type="submit" class="btn btn-default">Login</button>
+                            </div>
+
+                            @Html.HiddenFor(x => x.ReturnUrl)
+                }
+            </div>
+            <br />
+            @*<p class="forgotpasswordtext">
+                    <a href="@Url.Action("ForgotPassword", "Members")" class="btn btn-default">Forgot Password?</a>
+                </p>*@
+        }
+    </div>
+    <div class="col-md-3 col-sm-3">
+        <div class="row">
+            <div class="col-md-12">
+                <p>
+                    <i class="fa fa-volume-up"></i> Advertisements
+                </p>
+                <div style="border:1px solid #3b5998"></div>
+            </div>
+            @*<div class="col-md-12 sponsor-list">
+                    <img src="~/Content/img/ad/logo_farm.png" class="img-responsive  img-rounded show-in-modal">
+                    <p class="sponsor-url">
+                        <a href="http://www.southernstarfarm.us" target="_blank">Southern Star Farm</a>
+                    </p>
+                    <p class="sponsor-description">Alpaca fashions made with real alpaca fiber.</p>
+                </div>*@
+
+            <div class="col-md-12 sponsor-list">
+                <img src="~/Content/img/logos/GoldmineRidge.png" style="width: 150px; height: 150px;" class="img-responsive  img-rounded show-in-modal">
+                @*<p class="sponsor-name">Southern Star Farm</p>*@
+                <p class="sponsor-url">
+                    <a href="http://www.goldmineridgeal.com" target="_blank">Goldmine Ridge</a>
+                </p>
+                <p class="sponsor-description">Camping in beautiful Coosa County, Alabama.</p>
+            </div>
+            <div class="col-md-12 sponsor-list">
+                <img src="~/Content/img/ad/advertise4.jpg" style="width: 150px; height: 120px;" class="img-responsive  img-rounded show-in-modal">
+                <p class="sponsor-url">
+                    <a href="@Url.Action("Contact", "Home")" target="_blank">Advertise Here</a>
+                </p>
+                <p class="sponsor-description">Members get discounted advertising price.</p>
+            </div>
+        </div>
+    </div>
+</div>

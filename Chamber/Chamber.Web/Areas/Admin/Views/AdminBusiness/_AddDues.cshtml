@@ -1,0 +1,33 @@
+﻿@model Chamber.Web.Areas.Admin.ViewModels.BusinessDuesViewModel
+
+<div class="col-md-12">
+    <p><i class="fa fa-money"></i> <span style="font-weight: 800;">Update Dues</span> </p>
+    <div style="border:1px solid #3b5998"></div>
+</div>
+<div class="col-md-8">
+    @using (Html.BeginForm("AddDues", "AdminBusiness", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(x => x.BusinessId)
+        <br />
+        <div class="form-group">
+            <label for="AmountDue">Amount Due</label>
+            @Html.TextBoxFor(x => x.AmountDue, new { @class = "form-control", @type = "Number" })
+        </div>
+        <div class="form-group">
+            <label for="AmountPaid">Amount Paid</label>
+            @Html.TextBoxFor(x => x.AmountPaid, new { @class = "form-control", @type = "Number" })
+        </div>
+        <div class="form-group">
+            <label for="DueDate">Due Date</label>
+            @Html.TextBoxFor(x => x.DueDate, "{0:MM/dd/yyyy}", new { @class = "form-control", @type = "Date" })
+        </div>
+        <div class="form-group">
+            <label for="PaidDate">Paid Date</label>
+            @Html.TextBoxFor(x => x.PaidDate, "{0:MM/dd/yyyy}", new { @class = "form-control", @type = "Date" })
+        </div>
+        <div class="submit-holder">
+            <button type="submit" class="btn btn-default">Update Dues</button>
+        </div>
+    }
+</div>

@@ -1,0 +1,113 @@
+﻿@using Chamber.Domain.Constants
+@using Chamber.Web.Application
+@model Chamber.Web.Areas.Admin.ViewModels.MemberRoleListViewModel
+@{
+    ViewBag.Title = "Roles";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="pageTitle"><span style="font-weight: 800">Administration:</span> Roles</h2>
+            </div>
+        </div>
+    </div>
+</section>
+<br />
+
+<div class="row">
+    <div class="col-md-3 col-sm-3">
+        @Html.Partial("_AddRoles")
+    </div>
+    <div class="col-md-5 col-sm-5">
+        <div class="col-md-12">
+            @Html.Partial("_GenericMessage")
+            <p>
+                <i class="fa fa-bars"></i> <span style="font-weight: 800;">
+                    Registered Users &nbsp; | <i class="fa fa-certificate"> Admin</i> &nbsp; |
+                    <i class="fa fa-sun-o"> User</i> &nbsp;
+                </span>
+            </p>
+            <div style="border:1px solid #3b5998"></div>
+        </div>
+        <div class="col-md-12">
+            @if (Model.MembershipUsers.Count != 0)
+            {
+                using (Html.BeginForm("RoleIndex", "AdminRole", FormMethod.Post))
+                {
+                    <br />
+                    <div class="input-group tablesearch">
+                        @Html.TextBoxFor(x => Model.Search, new { @class = "form-control" })
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">Search by Last Name</button>
+                        </span>
+                    </div>
+                    @Html.HiddenFor(x => x.PageIndex)
+                }
+            }
+            else
+            {
+                <span>No Membership Users have been created.</span>
+            }
+            @if (Model.MembershipUsers.Count != 0)
+            {
+                <br />
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Location</th>
+                            <th>Role</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var membershipUser in Model.MembershipUsers)
+                        {
+                            var disabled = membershipUser.Id == Model.Id;
+                            <tr>
+                                <td>
+                                    @if (membershipUser.Roles.Contains(AppConstants.AdminRoleName))
+                                    {
+                                        <i class="fa fa-certificate">&nbsp;</i>
+                                    }
+                                    else
+                                    {
+                                        <i class="fa fa-sun-o">&nbsp;</i>
+                                    }
+                                    <strong>@membershipUser.LastName, @membershipUser.FirstName</strong>
+                                </td>
+                                <td>
+                                    <strong>@membershipUser.City, @membershipUser.State</strong>
+                                </td>
+                                <td>
+                                    <span class="listrolecbholder">
+                                        @foreach (var role in @Model.AllRoles)
+                                        {
+                                            var showChecked = membershipUser.Roles.Contains(role.RoleName) ? "checked='checked'" : "";
+                                            var disablecb = disabled ? "disabled='disabled'" : "";
+                                            <span class="listrolecb">
+                                                <input type="radio" name="Roles-@membershipUser.Id" value="@role.RoleName" @showChecked @disablecb /> @Html.Raw(role.RoleName)
+                                            </span>
+                                        }
+                                        <input type="hidden" id="userId" value="@membershipUser.Id" />
+                                    </span>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            @if (Model.TotalPages > 1)
+            {
+                @Html.Pager(Convert.ToInt32(Model.PageIndex), SiteConstants.Instance.SearchListSize, Convert.ToInt32(Model.TotalCount), new { search = Model.Search })
+            }
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-3">
+        <div class="row">
+            @Html.Partial("_RoleDashboard")
+        </div>
+    </div>
+</div>

@@ -84,7 +84,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActivityService.cs" />
+    <Compile Include="BusinessService.cs" />
+    <Compile Include="CacheService.cs" />
+    <Compile Include="ClassificationService.cs" />
+    <Compile Include="ConfigService.cs" />
+    <Compile Include="Data\Caching\CachingConfiguration.cs" />
+    <Compile Include="Data\Context\ChamberContext.cs" />
+    <Compile Include="Data\Mapping\ActivityMapping.cs" />
+    <Compile Include="Data\Mapping\BusinessBalanceMapping.cs" />
+    <Compile Include="Data\Mapping\BusinessContactMapping.cs" />
+    <Compile Include="Data\Mapping\BusinessMapping.cs" />
+    <Compile Include="Data\Mapping\ClassificationMapping.cs" />
+    <Compile Include="Data\Mapping\EmailMapping.cs" />
+    <Compile Include="Data\Mapping\MembershipLevelMapping.cs" />
+    <Compile Include="Data\Mapping\MembershipRoleMapping.cs" />
+    <Compile Include="Data\Mapping\MembershipUserMapping.cs" />
+    <Compile Include="Data\Mapping\SettingsMapping.cs" />
+    <Compile Include="Data\Migrations\Configuration.cs" />
+    <Compile Include="Data\UnitOfWork\UnitOfWork.cs" />
+    <Compile Include="Data\UnitOfWork\UnitOfWorkManager.cs" />
+    <Compile Include="EmailService.cs" />
+    <Compile Include="LoggingService.cs" />
+    <Compile Include="MembershipLevelService.cs" />
+    <Compile Include="MembershipService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReflectionService.cs" />
+    <Compile Include="RoleService.cs" />
+    <Compile Include="ServiceHelpers.cs" />
+    <Compile Include="SettingsService.cs" />
+    <Compile Include="SiteConfig\SiteConfig.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -100,14 +129,7 @@
       <Name>Chamber.Utilities</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\Caching\" />
-    <Folder Include="Data\Context\" />
-    <Folder Include="Data\Mapping\" />
-    <Folder Include="Data\Migrations\" />
-    <Folder Include="Data\UnitOfWork\" />
-    <Folder Include="SiteConfig\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

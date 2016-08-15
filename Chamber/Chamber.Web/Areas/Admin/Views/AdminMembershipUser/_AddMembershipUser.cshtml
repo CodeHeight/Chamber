@@ -1,0 +1,39 @@
+﻿@model Chamber.Web.Areas.Admin.ViewModels.AdminMemberAddViewModel
+
+
+
+<div class="col-md-12">
+    <p><i class="fa fa-user"></i> <span style="font-weight: 800;">Register A User</span> </p>
+    <div style="border:1px solid #3b5998"></div>
+</div>
+<div class="col-md-10">
+    @using (Html.BeginForm("AddMembershipUser", "AdminMembershipUser", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <br />
+        <div class="form-group">
+            <label for="Email">Email</label>
+            @Html.TextBoxFor(x => x.Email, new { @class = "form-control", maxlength = 100 })
+        </div>
+        <div class="form-group">
+            <label for="FirstName">First Name</label>
+            @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="LastName">Last Name</label>
+            @Html.TextBoxFor(x => x.LastName, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="City">City</label>
+            @Html.TextBoxFor(x => x.City, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="State">State</label>
+            @Html.DropDownListFor(x => x.State, new SelectList(Model._stateViewModel.allStates, "Name", "Name"), "Select.....", new { @class = "form-control", @id = "State" })
+            @Html.ValidationMessageFor(x => x.State)
+        </div>
+        <div class="submit-holder">
+            <button type="submit" class="btn btn-default">Create User</button>
+        </div>
+    }
+</div>

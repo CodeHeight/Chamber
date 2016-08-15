@@ -1,15 +1,157 @@
-﻿<!DOCTYPE html>
+﻿@using Chamber.Domain.DomainModel.General
+@{
+    TempData[AppConstants.CurrentAction] = ViewContext.RouteData.GetRequiredString("action").ToLower();
+    TempData[AppConstants.CurrentController] = ViewContext.RouteData.GetRequiredString("controller").ToLower();
+}
+
+<!DOCTYPE html>
+
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <meta charset="utf-8">
+    <title>Chamber of Commerce</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Open Source Chamber of Commerce">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="msvalidate.01" content="" />
+    <meta name="robots" content="noydir,nooodp" />
+    <meta name="googlebot" content="noydir,nooodp" />
+    <meta name="author" content="CodeHeight Solutions" />
+    <meta name="contact" content="CodeHeight Solutions" />
+    <meta name="copyright" content="CodeHeight Solutions">
+    <meta name="keywords" content="Chamber of Commerce, Open Source, Github, CodeHeight Solutions">
+    <!-- css -->
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/fancybox/jquery.fancybox.css" rel="stylesheet">
+    <link href="~/Content/css/flexslider.css" rel="stylesheet" />
+    <link href="~/Content/et-line-font/style.css" rel="stylesheet" />
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="~/Content/img/favicon.ico">
 </head>
 <body>
-    
-    <div class="container body-content">
-        @RenderBody()
-    </div>
+    <div id="wrapper">
 
+        @Html.Partial("_TopMenu")
+
+
+        <section>
+            @RenderBody()
+        </section>
+
+
+        <footer>
+            @*<div class="container">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="widget">
+                                <h5 class="widgetheading">Our Contact</h5>
+                                <address>
+                                    <strong>County Chamber of Commerce</strong><br>
+                                    P.O. Box 25<br>
+                                    Rockford, AL 35136
+                                </address>
+                                <p>
+                                    <i class="icon-phone"></i> (123) 456-789 <br>
+                                    <i class="icon-envelope-alt"></i> chamber@gmail.com
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="widget">
+                                <h5 class="widgetheading">Quick Links</h5>
+                                <ul class="link-list">
+                                    <li><a href="#">Latest Events</a></li>
+                                    <li><a href="#">Terms and conditions</a></li>
+                                    <li><a href="#">Privacy policy</a></li>
+                                    <li><a href="#">Career</a></li>
+                                    <li><a href="#">Contact us</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="widget">
+                                <h5 class="widgetheading">Latest posts</h5>
+                                <ul class="link-list">
+                                    <li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
+                                    <li><a href="#">Pellentesque et pulvinar enim. Quisque at tempor ligula</a></li>
+                                    <li><a href="#">Natus error sit voluptatem accusantium doloremque</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="widget">
+                                <h5 class="widgetheading">Recent News</h5>
+                                <ul class="link-list">
+                                    <li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
+                                    <li><a href="#">Pellentesque et pulvinar enim. Quisque at tempor ligula</a></li>
+                                    <li><a href="#">Natus error sit voluptatem accusantium doloremque</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+            <div id="sub-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="copyright">
+                                <p>
+                                    <span>
+                                        Developed By:<br /> <a href="http://www.southernstartech.us" target="_blank" alt="Southern Star Technology">
+                                            <img style="border: none; width: 130px; height:50px;" src="~/Content/img/SS_Tech_white.png" />
+                                        </a>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="copyright">
+                                <p>
+                                    <span style="text-align: center;">
+                                        @*Copyright of <br />*@
+                                        <a href="http://chamber.azurewebsites.net" alt="Chamber of Commerce">
+                                            <img style="border: none;" src="~/Content/img/footerLogo.png" class="footerlogo" />
+                                        </a>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <ul class="social-network">
+                                <li><a target="_blank" href="#" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                <li><a target="_blank" href="#" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                                @*<li><a href="#" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                                    <li><a href="#" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
+                                    <li><a href="#" data-placement="top" title="Google plus"><i class="fa fa-google-plus"></i></a></li>*@
+                            </ul>
+                            <div class="widget">
+                                <h5 class="widgetheading">Our Contact</h5>
+                                <address>
+                                    <strong>Chamber of Commerce</strong><br>
+                                    P.O. Box<br>
+                                    Montgomery, AL 35136
+                                </address>
+                                <p>
+                                    <i class="icon-phone"></i> (256) 537-0000  <br>
+                                    <i class="icon-envelope-alt"></i>chamber@gmail.com
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+    <script src="~/Scripts/js/jquery.js"></script>
+    <script src="~/Scripts/js/jquery.easing.1.3.js"></script>
+    <script src="~/Scripts/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/js/jquery.fancybox.pack.js"></script>
+    <script src="~/Scripts/js/jquery.fancybox-media.js"></script>
+    <script src="~/Scripts/js/portfolio/jquery.quicksand.js"></script>
+    <script src="~/Scripts/js/portfolio/setting.js"></script>
+    <script src="~/Scripts/js/jquery.flexslider.js"></script>
+    <script src="~/Scripts/js/animate.js"></script>
+    <script src="~/Scripts/js/custom.js"></script>
 </body>
 </html>

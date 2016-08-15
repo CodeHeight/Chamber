@@ -1,0 +1,162 @@
+﻿@using Chamber.Domain.Constants
+@using Chamber.Web.Application
+@model Chamber.Web.ViewModels.BusinessContactListViewModel
+
+@{
+    ViewBag.Title = "Individual";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="pageTitle">Registered Business within Chamber</h2>
+            </div>
+        </div>
+    </div>
+</section>
+<br />
+<div class="row">
+    <div class="col-md-3 col-sm-3">
+        <div class="col-md-12">
+            <p><i class="fa fa-dashboard"></i> <span style="font-weight: 800;">Business Dashboard</span></p>
+            <div style="border:1px solid #3b5998"></div>
+        </div>
+        <div class="col-md-12">
+            <br />
+            <table class="table table-bordered table-striped">
+                <tbody>
+                    <tr>
+                        <td>
+                            <strong>Total Registered Businesses</strong>
+                        </td>
+                        <td>
+                            @if (Model.NonPagedBusinesses != null)
+                            {
+                                <strong>@Model.NonPagedBusinesses.Count()</strong>
+                            }
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-5 col-sm-5">
+        <div class="col-md-12">
+            <p>
+                <i class="fa fa-bars"></i>
+                <span style="font-weight: 800;">
+                    Registered Individuals
+                </span>
+            </p>
+            <div style="border:1px solid #3b5998"></div>
+        </div>
+        <div class="col-md-12">
+            @if (Model.NonPagedBusinesses.Count != 0)
+            {
+                using (Html.BeginForm("Individual", "Business", FormMethod.Post))
+                {
+                    <br />
+                    <div class="input-group tablesearch">
+                        @Html.TextBoxFor(x => Model.Search, new { @class = "form-control", @placeholder = "First or Last Name" })
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">Search</button>
+                        </span>
+                    </div>
+                }
+                @Html.HiddenFor(x => x.PageIndex)
+            }
+            else
+            {
+                <span>No Businesses have been created.</span>
+            }
+            @if (Model.BusinessContacts.Count != 0)
+            {
+                <br />
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Business</th>
+                            <th>Individual</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var contact in Model.BusinessContacts)
+                        {
+                            <tr>
+                                <td style="text-align: center;">
+                                    <a href="@Url.Action("View", "Business", new { id = contact.Business.Id })" class="btn-mvc">
+                                        <span class="fa fa-folder-open" aria-hidden="true"></span>
+                                    </a>
+                                </td>
+                                <td>
+                                    <strong>@contact.Business.Name</strong>
+                                </td>
+                                <td>
+                                    <strong>@contact.FirstName @contact.LastName</strong>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <strong>No results found.</strong>
+            }
+        </div>
+        @if (Model.TotalPages > 1)
+            {
+            @Html.Pager(Convert.ToInt32(Model.PageIndex), SiteConstants.Instance.SearchListSize, Convert.ToInt32(Model.TotalCount), new { search = Model.Search })
+        }
+        <table class="table">
+            <tr>
+                <td>
+                    <span class="input-group-btn">
+                        <a href="@Url.Action("Directory", "Business", null)" class="btn btn-default">Search for Business</a>
+                    </span>
+                </td>
+                <td>
+                    <span class="input-group-btn">
+                        <a href="@Url.Action("Classification", "Business", null)" class="btn btn-default">Search by Classification</a>
+                    </span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-3 col-sm-3">
+        <div class="row">
+
+            <div class="col-md-12">
+                <p><i class="fa fa-volume-up"></i> Advertisements</p>
+                <div style="border:1px solid #3b5998;"></div><br />
+            </div>
+            <div class="col-md-10">
+                <div class="col-md-12 sponsor-list">
+                    <img src="~/Content/img/logos/Madix.png" style="width: 200px; height: 125px;" class="img-responsive img-rounded show-in-modal">
+                    @*<p class="sponsor-name">Southern Star Farm</p>*@
+                    <p class="sponsor-url"><a href="http://www.madixinc.com/" target="_blank">Madix Incorporated</a></p>
+                    <p class="sponsor-description">Store Fixtures for Store Designers</p>
+                </div>
+                <div class="col-md-12 sponsor-list">
+                    <img src="~/Content/img/logos/marykaylogo.jpg" style="width: 160px; height: 100px;" class="img-responsive img-rounded show-in-modal">
+                    <p class="sponsor-url">
+                        <a href="http://www.marykay.com/sward56140" target="_blank">Mary Kay Consultant</a>
+                    </p>
+                    <p class="sponsor-description">Sheila Ward of Rockford</p>
+                </div>
+                @*<div class="col-md-12 sponsor-list">
+                        <img src="~/Content/img/ad/advertise6.png" style="width: 150px; height: 120px;" class="img-responsive  img-rounded show-in-modal">
+                        <p class="sponsor-url">
+                            <a href="@Url.Action("Contact", "Home")" target="_blank">Advertise Here</a>
+                        </p>
+                        <p class="sponsor-description">Members get discounted advertising price.</p>
+                    </div>*@
+            </div>
+        </div>
+    </div>
+</div>
+
+

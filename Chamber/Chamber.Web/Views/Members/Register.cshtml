@@ -1,0 +1,186 @@
+﻿@model Chamber.Web.ViewModels.MemberAddViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="pageTitle">Register for the Chamber app</h2>
+            </div>
+        </div>
+    </div>
+</section>
+<br />
+
+
+<div class="row">
+    <div class="col-md-4 col-sm-4">
+        <div class="col-md-12">
+            <p><i class="fa fa-question-circle"></i> <span style="font-weight: 800;">Registration Benefits</span> </p>
+            <div style="border:1px solid #3b5998"></div>
+        </div>
+        <div class="col-md-12">
+            <div class="panel-group" id="accordion-alt3">
+                <!-- Panel. Use "panel-XXX" class for different colors. Replace "XXX" with color. -->
+                <div class="panel">
+                    <!-- Panel heading -->
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion-alt3" href="#collapseOne-alt3">
+                                <i class="fa fa-angle-right"></i> Chamber Membership
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne-alt3" class="panel-collapse collapse">
+                        <!-- Panel body -->
+                        <div class="panel-body">
+                            Apply online for the Chamber of Commerce Membership
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion-alt3" href="#collapseTwo-alt3">
+                                <i class="fa fa-angle-right"></i> Local Business
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo-alt3" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            When you register for the Chamber app, you'll have more in depth access that non registered users will not have within their menu.
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion-alt3" href="#collapseThree-alt3">
+                                <i class="fa fa-angle-right"></i> Marketing
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseThree-alt3" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            Apply for marketing your business on our website.  We will also promote your business through our Facebook and Twitter accounts.
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion-alt3" href="#collapseFour-alt3">
+                                <i class="fa fa-angle-right"></i> Social Networking
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseFour-alt3" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            Use our Chamber of Commerce forum to communicate with individuals, businesses, or just share your ideas.
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion-alt3" href="#collapseFive-alt3">
+                                <i class="fa fa-angle-right"></i> Business Directory
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseFive-alt3" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            Use the internal business directory to find local businesses within county and also neighboring counties.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-4">
+        @Html.Partial("_GenericMessage")
+        @if (!User.Identity.IsAuthenticated)
+        {
+            using (Html.BeginForm("Register", "Members", FormMethod.Post, new { @class = "form-register" }))
+            {
+                @Html.ValidationSummary(true)
+                @Html.AntiForgeryToken()
+
+                <div class="form-group">
+                    <label for="FirstName">First Name</label>
+                    @Html.TextBoxFor(x => x.FirstName, new { type = "text", @class = "form-control", placeholder = "" })
+                    @Html.ValidationMessageFor(x => x.FirstName)
+                </div>
+                <div class="form-group">
+                    <label for="LastName">Last Name</label>
+                    @Html.TextBoxFor(x => x.LastName, new { type = "text", @class = "form-control", placeholder = "" })
+                    @Html.ValidationMessageFor(x => x.LastName)
+                </div>
+                <div class="form-group">
+                    <label for="City">City</label>
+                    @Html.TextBoxFor(x => x.City, new { type = "text", @class = "form-control", placeholder = "" })
+                    @Html.ValidationMessageFor(x => x.City)
+                </div>
+                <div class="form-group">
+                    <label for="State">State</label>
+                    @Html.DropDownListFor(x => x.State, new SelectList(Model._stateViewModel.allStates, "Name", "Name"), "Select.....", new { @class = "form-control", @id = "State" })
+                    @Html.ValidationMessageFor(x => x.State)
+                </div>
+                <div class="form-group">
+                    <label for="Email">Email</label>
+                    @Html.TextBoxFor(x => x.Email, new { type = "email", @class = "form-control", placeholder = "" })
+                    @Html.ValidationMessageFor(x => x.Email)
+                </div>
+                <div class="form-group">
+                    <label for="Password">Password</label>
+                    @Html.TextBoxFor(x => x.Password, new { type = "password", @class = "form-control", placeholder = "" })
+                    @Html.ValidationMessageFor(x => x.Password)
+                </div>
+                    <div class="form-group">
+                        <label for="ConfirmPassword">Confirm Password</label>
+                        @Html.TextBoxFor(x => x.ConfirmPassword, new { type = "password", @class = "form-control", placeholder = "" })
+                        @Html.ValidationMessageFor(x => x.ConfirmPassword)
+                    </div>
+                    <div class="submit-holder">
+                        <button type="submit" class="btn btn-default">Save</button>
+                    </div>
+            }
+        }
+        else
+        {
+            <span style="font-weight: 800">You are already registered.</span>
+        }
+
+    </div>
+    <div class="col-md-3 col-sm-3">
+        <div class="row">
+            <div class="col-md-12">
+                <p><i class="fa fa-volume-up"></i> Advertisements</p>
+                <div style="border:1px solid #3b5998"></div>
+            </div>
+            @*<div class="col-md-12 sponsor-list">
+                    <img src="~/Content/img/ad/OfficialLogo.png" class="img-responsive  img-rounded show-in-modal">
+                    @*<p class="sponsor-name">Southern Star Technology</p>
+                    <p class="sponsor-url"><a href="http://www.southernstartech.us" target="_blank">Southern Star Technology</a></p>
+                    <p class="sponsor-description">We build apps for all your business needs.</p>
+                </div>*@
+            <div class="col-md-12 sponsor-list">
+                <img src="~/Content/img/ad/logo_farm.png" class="img-responsive  img-rounded show-in-modal">
+                @*<p class="sponsor-name">Southern Star Farm</p>*@
+                <p class="sponsor-url"><a href="http://www.southernstarfarm.us" target="_blank">Southern Star Farm</a></p>
+                <p class="sponsor-description">Alpaca fashions made with real alpaca fiber.</p>
+            </div>
+            <div class="col-md-12 sponsor-list">
+                <img src="~/Content/img/ad/advertise6.png" style="width: 150px; height: 120px;" class="img-responsive  img-rounded show-in-modal">
+                <p class="sponsor-url">
+                    <a href="#" target="_blank">Advertise Here</a>
+                </p>
+                <p class="sponsor-description">Members get discounted advertising price.</p>
+            </div>
+        </div>
+    </div>
+</div>
