@@ -32,4 +32,6 @@ Admin login:  admin@chamber.com
 Admin pass:   password
 
 
+## Screenshots ##
 
+![Admin Screenshot](https://github.com/CodeHeight/Chamber/blob/master/Database/Admin.PNG)
