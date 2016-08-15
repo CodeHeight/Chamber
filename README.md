@@ -19,11 +19,16 @@ This project was originally used for local chamber sites and a lot of commerical
 
 
 Initial setup is easy:
+
 1) Open solution file with VS2015
+
 2) Restore .bak to SQL Server 2014
+
 3) Build entire solution
 
+
 Admin login:  admin@chamber.com
+
 Admin pass:   password
 
 
