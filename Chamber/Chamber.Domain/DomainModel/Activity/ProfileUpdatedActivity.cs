@@ -22,7 +22,7 @@ namespace Chamber.Domain.DomainModel.Activity
             return new Activity
             {
                 Data = KeyUserId + Equality + user.Id,
-                Timestamp = DateTime.Now,
+                Timestamp = DateTime.UtcNow,
                 Type = ActivityType.ProfileUpdated.ToString()
             };
         }

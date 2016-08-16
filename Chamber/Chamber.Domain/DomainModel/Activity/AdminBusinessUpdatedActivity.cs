@@ -23,7 +23,7 @@ namespace Chamber.Domain.DomainModel.Activity
             {
                 Data = KeyBusinessId + Equality + business.Id + Separator +
                     KeyAdminId + Equality + admin.Id,
-                Timestamp = DateTime.Now,
+                Timestamp = DateTime.UtcNow,
                 Type = ActivityType.AdminBusinessUpdated.ToString()
             };
         }
