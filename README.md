@@ -15,7 +15,7 @@ Chamber of commerce application
  - Business Membership Levels
  - Administration Panel
 
-This project was originally used for local chamber sites and a lot of commerical names, images, etc. was stripped out.  This chamber web app was developed by [CodeHeight Solutions](http://www.codeheight.com) (formerly known as Southern Star Technology)
+This project was originally used for local chamber site.  It is built using MVC5, ASP.NET 4.6, Microsoft Unity Dependency Injection, C# 6.0, and SQL Server 2014.
 
 
 Initial setup is easy:
@@ -35,3 +35,7 @@ Admin pass:   password
 ## Screenshots ##
 
 ![Admin Screenshot](https://github.com/CodeHeight/Chamber/blob/master/Database/Admin.PNG)
+
+
+
+This chamber web app was developed by [CodeHeight Solutions](http://www.codeheight.com) (formerly known as Southern Star Technology)
